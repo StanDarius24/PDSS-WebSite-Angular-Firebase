@@ -12,4 +12,20 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  event(text: string): void {
+    console.log(text);
+    // Adaugat cautarea in baza de date a respectivului produs si
+    // Redirectionarea catre pagina acestuia
+  }
+
+
+  sprecont(): void {
+
+  }
+
+  sprecos(): void
+  {
+
+  }
+
 }
