@@ -11,16 +11,25 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { ListComponent } from './component/list/list.component';
 import { FireBaseServiceService } from './service/fire-base-service.service';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterComponent } from './component/register/register.component';
+import { FormElementsModule } from './shared/shared_modules/form-elements/form-elements.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ListComponent
+    ListComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    FormElementsModule,
+    AngularFireStorageModule,
     NgbModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),

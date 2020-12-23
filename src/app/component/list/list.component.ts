@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FireBaseServiceService } from 'src/app/service/fire-base-service.service';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-list',
@@ -11,14 +12,16 @@ export class ListComponent implements OnInit {
   Age: number;
   Adress: string;
   Message: string;
-  constructor(public fireservices:FireBaseServiceService) { }
-
+  path:String;
+  url ="";
+  constructor(public fireservices:FireBaseServiceService,public storagephoto:AngularFireStorage) { }
+  
   ngOnInit(): void {
   }
 
   SaveMethod(){
     let Record={};
-
+    
     Record['Name'] = this.Name;
     Record['Age'] = this.Age;
     Record['Adress'] = this.Adress;
@@ -35,6 +38,21 @@ export class ListComponent implements OnInit {
       console.log(error);
     });
 
+    this.storagephoto.upload("/files" + Math.random() + this.path , this.path );
+
   }
+
+  upload($event){
+    if($event.target.files)
+    {
+    this.path = $event.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL($event.target.file[0]);
+    reader.onload=(event2:any)=>{
+      this.url=event2.target.result
+    };
+  }
+  }
+  
 
 }
