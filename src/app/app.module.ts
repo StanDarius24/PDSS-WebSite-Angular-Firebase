@@ -15,6 +15,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './component/register/register.component';
 import { FormElementsModule } from './shared/shared_modules/form-elements/form-elements.module';
+import { AddproductComponent } from './component/addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormElementsModule } from './shared/shared_modules/form-elements/form-e
     HeaderComponent,
     FooterComponent,
     ListComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddproductComponent
   ],
   imports: [
     BrowserModule,
