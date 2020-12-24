@@ -15,13 +15,13 @@ export class ListComponent implements OnInit {
   path:String;
   url ="";
   constructor(public fireservices:FireBaseServiceService,public storagephoto:AngularFireStorage) { }
-  
+
   ngOnInit(): void {
   }
 
   SaveMethod(){
     let Record={};
-    
+
     Record['Name'] = this.Name;
     Record['Age'] = this.Age;
     Record['Adress'] = this.Adress;
@@ -37,9 +37,7 @@ export class ListComponent implements OnInit {
     ).catch(error =>{
       console.log(error);
     });
-
     this.storagephoto.upload("/files" + Math.random() + this.path , this.path );
-
   }
 
   upload($event){
@@ -51,8 +49,6 @@ export class ListComponent implements OnInit {
     reader.onload=(event2:any)=>{
       this.url=event2.target.result
     };
+   }
   }
-  }
-  
-
 }
