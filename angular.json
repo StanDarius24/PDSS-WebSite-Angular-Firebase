@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ProiectPDSS": {
+    "Ieftinache": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ProiectPDSS",
+            "outputPath": "dist/Ieftinache",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -39,7 +39,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -62,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ProiectPDSS:build"
+            "browserTarget": "Ieftinache:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ProiectPDSS:build:production"
+              "browserTarget": "Ieftinache:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ProiectPDSS:build"
+            "browserTarget": "Ieftinache:build"
           }
         },
         "test": {
@@ -110,15 +109,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ProiectPDSS:serve"
+            "devServerTarget": "Ieftinache:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ProiectPDSS:serve:production"
+              "devServerTarget": "Ieftinache:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "ProiectPDSS"
+    }
+  },
+  "defaultProject": "Ieftinache"
 }
