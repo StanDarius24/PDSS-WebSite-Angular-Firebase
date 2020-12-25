@@ -13,6 +13,11 @@ export class FireBaseServiceService {
     return this.fireservices.collection('Persoane').add(Record);
   }
 
+  get_Products()
+  {
+    return this.fireservices.collection('Produse').snapshotChanges();
+  }
+
   create_NewProduct(Record)
   {
     return this.fireservices.collection('Produse').add(Record);return

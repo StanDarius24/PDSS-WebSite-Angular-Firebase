@@ -97,7 +97,7 @@ export class AddproductComponent implements OnInit {
 
     this.Message="Produs adaugat";
 
-    this.firebasestorage.upload("/files" + Math.random() + this.path , this.path );
+    this.firebasestorage.upload("/files" + this.Nume + this.Pret , this.path );
 
 
     this.firebaseservice.create_NewProduct(Record).then(

@@ -1,0 +1,42 @@
+.textcentru{
+  text-align: center;
+}
+
+.mailadreapta{
+  position: relative;
+  left: 20px;
+}
+.culoatetext{
+  color: springgreen;
+}
+
+.culoarebuton{
+  color:rgb(25, 135, 84);
+}
+.sizeinput{
+  width: 200px;
+  position: relative;
+}
+.curcubeu {
+  animation: color-change 5s infinite;
+}
+
+@keyframes color-change {
+  0% { color: forestgreen}
+  25% {color: darkgreen  }
+  50% { color: lightseagreen }
+  75% { color: lawngreen }
+  100% { color: forestgreen }
+}
+.descrieresize{
+  position: relative;
+  height: 100px;
+  width: 600px;
+}
+.sizefortextandstuff{
+  size: 100px;
+  font-weight: bolder;
+}
+.culoare2{
+  color: forestgreen;
+}
