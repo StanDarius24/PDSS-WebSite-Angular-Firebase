@@ -1,0 +1,24 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLogIn()">
+  <div>
+    <mat-form-field class="modified-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" formControlName="email" id="email">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="modified-width">
+      <mat-label>Parola</mat-label>
+      <input matInput type="password" formControlName="password" id="password">
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" placeholder="Log in">LOG IN</button>
+</form>
+<br>
+<button mat-raised-button color="warn" class="margin-right" (click)="onLogInWithGoogle()">WARN</button>
+<button mat-raised-button color="accent" class="margin-right" (click)="onLogInWithGoogle()">ACCENT</button>
+
+
+
+

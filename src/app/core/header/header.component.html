@@ -1,0 +1,21 @@
+<mat-toolbar class="navbar">
+  <div>
+    <a mat-button routerLink="acasa">Ieftinache</a>
+  </div>
+  <div>
+    <a mat-button routerLink="home">ACASA</a>
+    <a mat-button routerLink="store">PRODUSE</a>
+    <a mat-button routerLink="info">DESPRE</a>
+  </div>
+  <div *ngIf="!isLoggedIn">
+    <a mat-button routerLink="login" >INTRA IN CONT</a>
+    <a mat-button routerLink="register">INREGISTRARE</a>
+  </div>
+  <div *ngIf="isLoggedIn">
+    <a mat-button routerLink="admin">ADMIN</a>
+    <button mat-button (click)="onLogOut()">LOG OUT</button>
+  </div>
+</mat-toolbar>
+
+
+
