@@ -9,6 +9,7 @@ import {FirestoreService} from '../../core/services/firestore.service';
 })
 export class AdminComponent implements OnInit {
   users: User[];
+  displayedColumns: string[] = ['id', 'email', 'displayName'];
 
   constructor(private firestoreService: FirestoreService) { }
 
