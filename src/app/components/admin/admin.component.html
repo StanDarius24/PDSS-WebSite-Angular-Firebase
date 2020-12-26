@@ -2,11 +2,9 @@
   <ul *ngFor="let user of users; let i = index">
     <li>
       <strong>{{i}} </strong>
-      <strong>ID: </strong>{{user.profile.uid}}
-      <strong>PRENUME: </strong>{{user.profile.firstName}}
-      <strong>NUME: </strong>{{user.profile.lastName}}
-      <strong>EMAIL: </strong>{{user.profile.email}}
-      <strong>PAROLA: </strong>{{user.security.password}}
+      <strong>ID: </strong>{{user.uid}}
+      <strong>EMAIL: </strong>{{user.email}}
+      <strong>NUME PRENUME: </strong>{{user.displayName}}
     </li>
   </ul>
 </div>

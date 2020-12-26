@@ -4,10 +4,10 @@ import {FirebaseModule} from './modules/firebase.module';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {RouterModule} from '@angular/router';
+import {FirestoreService} from './services/firestore.service';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
-import {UserAuthService} from './services/user-auth.service';
-import {FirestoreService} from './services/firestore.service';
+import {AuthService} from './services/auth.service';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import {FirestoreService} from './services/firestore.service';
     MatButtonModule
   ],
   providers: [
-    UserAuthService,
+    AuthService,
     FirestoreService
   ]
 })

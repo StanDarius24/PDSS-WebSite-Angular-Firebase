@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
 import {User} from '../models/user.model';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -19,23 +19,48 @@ export class FirestoreService {
       .pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as User;
-        data.profile.uid = a.payload.doc.id;
+        data.uid = a.payload.doc.id;
         return data;
       });
     }));
   }
 
-  addUser(user: User) {
+  addUser(user) {
     this.usersCollection.add(user)
       .then((userRef) => {
         console.log('User added with ID: ', userRef.id);
       })
       .catch((error) => {
-        console.log('Error adding user: ', error);
+        console.log('ERROR ADDING USER: ', error);
       });
+  }
+
+  updateUserData(user) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`${this.USERS_COLLECTION_PATH}/${user.uid}`);
+
+    const data: User = Object.assign({}, user);
+
+    return userRef.set(data, {merge: true});
   }
 
   getUsers() {
     return this.users;
+  }
+
+  getUserWithID(ID) {
+    if (!ID) {
+      console.log('NULL ID');
+    } else {
+      const userRef = this.usersCollection.doc(ID);
+      const doc = userRef.get();
+      if (doc) {
+        // do something
+        console.log('USER WITH ID: ', ID, ' EXISTS');
+      } else {
+        // do something else
+        console.log('THERE IS NO USER WITH ID: ', ID);
+      }
+    }
+
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {UserAuthService} from '../services/user-auth.service';
-import firebase from 'firebase/app';
+import firebase from 'firebase';
+import {AuthService} from '../services/auth.service';
+import {Observable} from 'rxjs';
+import {User} from '../models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -8,21 +10,15 @@ import firebase from 'firebase/app';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn: boolean;
+  user$: Observable<User>;
 
-  constructor(private userAuthService: UserAuthService) { }
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.userAuthService.user$.subscribe( (user) => {
-      if (user) {
-        this.isLoggedIn = true;
-      } else {
-        this.isLoggedIn = false;
-      }
-    });
+    this.user$ = this.authService.user$;
   }
 
-  onLogOut() {
-    this.userAuthService.logOutUser();
+  async onLogOut() {
+    await this.authService.logOut();
   }
 }

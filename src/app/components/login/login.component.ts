@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {UserAuthService} from '../../core/services/user-auth.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {FirestoreService} from '../../core/services/firestore.service';
+import {AuthService} from '../../core/services/auth.service';
+import {Observable} from 'rxjs';
+import {User} from '../../core/models/user.model';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: [
+    '../style/style.scss',
+    './login.component.css']
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  hide = true;
+  user$: Observable<User>;
 
   constructor(
     private formBuilder: FormBuilder,
-    private userAuthService: UserAuthService,
-    private firestoreService: FirestoreService
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -23,25 +25,16 @@ export class LoginComponent implements OnInit {
       email: '',
       password: ''
     });
+    this.user$ = this.authService.user$;
   }
 
-  onLogIn() {
-    this.userAuthService.logInUserWithEmailPassword(this.loginForm.value.email, this.loginForm.value.password);
+  async onLogInWithGoogle() {
+    await this.authService.logInWithGoogle();
   }
 
-  onLogInWithGoogle() {
-    this.userAuthService.logInUserWithGoogle();
-  }
-
-  checkState() {
-    this.userAuthService.authStateListener();
-  }
-
-  onLogOut() {
-    this.userAuthService.logOutUser();
-  }
-
-  printUser() {
-    this.userAuthService.getLoggedInUser();
+  async onLogIn() {
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
+    await this.authService.logInWithEmailPassword(email, password);
   }
 }
