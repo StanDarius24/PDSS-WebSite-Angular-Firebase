@@ -7,21 +7,15 @@ import {CoreModule} from './core/core.module';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule, routingComponents} from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import {UserAuthService} from './core/services/user-auth.service';
-import {MatButtonModule} from '@angular/material/button';
-import { ProfileFormComponent } from './components/profile-form/profile-form.component';
-import { SecurityFormComponent } from './components/security-form/security-form.component';
-import { AdminComponent } from './components/admin/admin.component';
-import {FirestoreService} from './core/services/firestore.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
-    ProfileFormComponent,
-    SecurityFormComponent,
-    AdminComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,
@@ -30,13 +24,12 @@ import {MatInputModule} from '@angular/material/input';
     CoreModule,
     RouterModule,
     ReactiveFormsModule,
-    MatButtonModule,
-    MatInputModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
-  providers: [
-    UserAuthService,
-    FirestoreService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

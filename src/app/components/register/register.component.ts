@@ -1,31 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {UserAuthService} from '../../core/services/user-auth.service';
 import {FirestoreService} from '../../core/services/firestore.service';
+import {AuthService} from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: [
+    '../style/style.scss',
+    './register.component.css']
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private userAuthService: UserAuthService,
-    private firestoreService: FirestoreService
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      profile: [],
-      security: []
+      email: '',
+      displayName: '',
+      password: ''
     });
   }
 
   onRegister() {
-    this.firestoreService.addUser(this.registerForm.value);
-    this.userAuthService.registerUserWithEmailPassword(this.registerForm.value);
+    this.authService.registerWithEmailPassword(this.registerForm.value);
   }
 }
