@@ -14,7 +14,7 @@
     </div>
   </ng-template>
   <div *ngIf="user$ | async as user; else entry">
-    <a mat-button routerLink="admin">ADMIN</a>
+    <a mat-button routerLink="admin" *ngIf="isAdmin">ADMIN</a>
     <button mat-button color="warn" (click)="onLogOut()">LOG OUT</button>
   </div>
 </mat-toolbar>
