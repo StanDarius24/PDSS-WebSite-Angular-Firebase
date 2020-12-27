@@ -5,9 +5,8 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {RouterModule} from '@angular/router';
 import {FirestoreService} from './services/firestore.service';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
 import {AuthService} from './services/auth.service';
+import {AngularMaterialModule} from './modules/angular-material.module';
 
 
 @NgModule({
@@ -17,14 +16,14 @@ import {AuthService} from './services/auth.service';
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AngularMaterialModule
   ],
   imports: [
     CommonModule,
     FirebaseModule,
     RouterModule,
-    MatToolbarModule,
-    MatButtonModule
+    AngularMaterialModule
   ],
   providers: [
     AuthService,

@@ -56,6 +56,5 @@ export class FirestoreService {
         console.log('THERE IS NO USER WITH ID: ', ID);
       }
     }
-
   }
 }
