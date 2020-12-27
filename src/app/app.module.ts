@@ -17,7 +17,8 @@ import { RegisterComponent } from './component/register/register.component';
 import { FormElementsModule } from './shared/shared_modules/form-elements/form-elements.module';
 import { AddproductComponent } from './component/addproduct/addproduct.component';
 import { ListproductsComponent } from './component/listproducts/listproducts.component';
-
+import { CategoryComponent } from './component/category/category.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { ListproductsComponent } from './component/listproducts/listproducts.com
     ListComponent,
     RegisterComponent,
     AddproductComponent,
-    ListproductsComponent
+    ListproductsComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,7 @@ import { ListproductsComponent } from './component/listproducts/listproducts.com
     AngularFireStorageModule,
     NgbModule,
     FormsModule,
+    CarouselModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
