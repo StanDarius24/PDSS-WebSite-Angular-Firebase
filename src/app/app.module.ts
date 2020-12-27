@@ -7,12 +7,7 @@ import {CoreModule} from './core/core.module';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule, routingComponents} from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {FlexModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -26,12 +21,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     CoreModule,
     RouterModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatTableModule,
-    MatPaginatorModule
+    FlexModule
   ],
   providers: [],
   bootstrap: [AppComponent]
