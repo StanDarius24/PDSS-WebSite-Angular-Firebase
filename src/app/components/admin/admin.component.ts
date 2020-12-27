@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {User} from '../../core/models/user.model';
 import {FirestoreService} from '../../core/services/firestore.service';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-admin',
@@ -18,5 +20,4 @@ export class AdminComponent implements OnInit {
       this.users = users;
     });
   }
-
 }

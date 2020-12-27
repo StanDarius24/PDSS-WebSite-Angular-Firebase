@@ -25,20 +25,15 @@ export class FirestoreService {
     }));
   }
 
-  addUser(user) {
-    this.usersCollection.add(user)
-      .then((userRef) => {
-        console.log('User added with ID: ', userRef.id);
-      })
-      .catch((error) => {
-        console.log('ERROR ADDING USER: ', error);
-      });
-  }
-
   updateUserData(user) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`${this.USERS_COLLECTION_PATH}/${user.uid}`);
 
-    const data: User = Object.assign({}, user);
+    const data = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      role: 'normal'
+    };
 
     return userRef.set(data, {merge: true});
   }
