@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FireBaseServiceService } from 'src/app/service/fire-base-service.service';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { Observable } from "rxjs";
+import { map, finalize } from "rxjs/operators";
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
@@ -14,12 +16,13 @@ export class AddproductComponent implements OnInit {
   Pret:number;
   Descriere:String;
   Categorie:String="Nimic";
-
+  downloadURL: Observable<string>;
   path:String;
   Filtru1:String;
   Filtru2:String;
   Filtru3:String;
   Filtru4:String;
+  fb:String ="E gol";
 
 
   constructor(public firebaseservice:FireBaseServiceService, public firebasestorage:AngularFireStorage) { }
@@ -82,23 +85,61 @@ export class AddproductComponent implements OnInit {
 
   create() :void
   {
+
+    const fpath = "/file" + this.Nume + this.Categorie +this.Pret;
+
+
+
+    const fileref = this.firebasestorage.ref(fpath);
+
+    const task = this.firebasestorage.upload(fpath , this.path );
+
+    task.snapshotChanges()
+      .pipe(
+        finalize(() =>{
+          this.downloadURL = fileref.getDownloadURL();
+          this.downloadURL.subscribe(url => {
+            if(url)
+            {
+              this.fb = url;
+              this.adaugarea();
+            }
+            console.log(this.fb);
+          });
+        })
+      )
+      .subscribe(url =>{
+        if(url) {
+          console.log(url);
+
+        }
+      });
+
+
+
+
+
+
+
+
+  }
+
+  adaugarea()
+  {
     let Record={};
 
     Record['Nume'] = this.Nume;
     Record['Categorie'] = this.Categorie;
     Record['Descriere'] = this.Descriere;
     Record['Pret'] = this.Pret;
-
+    Record['URL'] = this.fb;
     Record['Filtru1'] = this.Filtru1;
     Record['Filtru2'] = this.Filtru2;
     Record['Filtru3'] = this.Filtru3;
     Record['Filtru4'] = this.Filtru4;
 
-
+    console.log(Record);
     this.Message="Produs adaugat";
-
-    this.firebasestorage.upload("/files" + this.Nume + this.Pret , this.path );
-
 
     this.firebaseservice.create_NewProduct(Record).then(
       res=>{
@@ -110,13 +151,14 @@ export class AddproductComponent implements OnInit {
         this.Filtru3="";
         this.Filtru4="";
         this.Descriere="";
+        this.fb="";
         console.log(res);
         this.Message="Data Saved!";
       }
     ).catch(error =>{
       console.log(error);
     });
-
   }
+
 
 }
