@@ -6,13 +6,23 @@
     </ng-container>
 
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <th mat-header-cell *matHeaderCellDef> Email </th>
       <td mat-cell *matCellDef="let user"> {{user.email}} </td>
     </ng-container>
 
     <ng-container matColumnDef="displayName">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
+      <th mat-header-cell *matHeaderCellDef> Name </th>
       <td mat-cell *matCellDef="let user"> {{user.displayName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let user"><button mat-raised-button color="accent" (click)="onEdit(user)">EDIT</button></td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let user"><button mat-raised-button color="warn" (click)="onDelete(user)">DELETE</button></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -24,4 +34,31 @@
   <p><strong>NO USERS TO DISPLAY</strong></p>
 </div>
 
-<app-register></app-register>
+<form [formGroup]="userForm" (ngSubmit)="onUpdate()">
+  <div>
+    <mat-form-field class="modified-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" formControlName="email" id="email">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="modified-width">
+      <mat-label>Nume Prenume</mat-label>
+      <input matInput type="text" formControlName="displayName" id="displayName">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="modified-width">
+      <mat-label>Rol</mat-label>
+      <input matInput type="text" formControlName="role" id="role">
+    </mat-form-field>
+  </div>
+  <button mat-raised-button type="submit">UPDATE</button>
+</form>
+<div>
+  <pre>
+  {{userForm.value | json}}
+  </pre>
+</div>
