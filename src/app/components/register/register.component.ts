@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onRegister() {
-    this.authService.registerWithEmailPassword(this.registerForm.value);
+  async onRegister() {
+    await this.authService.registerWithEmailPassword(this.registerForm.value);
   }
 }

@@ -25,36 +25,36 @@ export class FirestoreService {
     }));
   }
 
-  updateUserData(user) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`${this.USERS_COLLECTION_PATH}/${user.uid}`);
-
-    const data = {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      role: 'normal'
-    };
-
-    return userRef.set(data, {merge: true});
-  }
-
   getUsers() {
     return this.users;
   }
 
-  getUserWithID(ID) {
-    if (!ID) {
-      console.log('NULL ID');
-    } else {
-      const userRef = this.usersCollection.doc(ID);
-      const doc = userRef.get();
-      if (doc) {
-        // do something
-        console.log('USER WITH ID: ', ID, ' EXISTS');
-      } else {
-        // do something else
-        console.log('THERE IS NO USER WITH ID: ', ID);
-      }
-    }
+  createUserData(user) {
+    return {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName
+    };
+  }
+
+  getUserRef(user): AngularFirestoreDocument<User> {
+    return this.afs.doc(`${this.USERS_COLLECTION_PATH}/${user.uid}`);
+  }
+
+  saveNewUserData(user) {
+    const userRef = this.getUserRef(user) ;
+
+    const data = Object.assign({role: 'normal'}, this.createUserData(user));
+
+    return userRef.set(data);
+  }
+
+  updateUserData(user) {
+    const userRef = this.getUserRef(user);
+    return userRef.update(user);
+  }
+
+  async deleteUser(user) {
+    return this.getUserRef(user).delete();
   }
 }

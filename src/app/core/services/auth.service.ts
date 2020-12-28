@@ -36,7 +36,7 @@ export class AuthService {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
     await this.router.navigate(['/']);
-    return this.firestoreService.updateUserData(credential.user);
+    return this.firestoreService.saveNewUserData(credential.user);
   }
 
   async logInWithEmailPassword(email, password) {
@@ -53,8 +53,10 @@ export class AuthService {
     const credential = await this.afAuth.createUserWithEmailAndPassword(user.email, user.password);
     user.uid = credential.user.uid;
     await this.router.navigate(['/']);
-    return this.firestoreService.updateUserData(user);
+    return this.firestoreService.saveNewUserData(user);
   }
 
-
+  async getCurrentUser() {
+    return this.afAuth.currentUser;
+  }
 }
