@@ -7,6 +7,7 @@ import {RouterModule} from '@angular/router';
 import {FirestoreService} from './services/firestore.service';
 import {AuthService} from './services/auth.service';
 import {AngularMaterialModule} from './modules/angular-material.module';
+import {FlexModule} from '@angular/flex-layout';
 
 
 @NgModule({
@@ -19,12 +20,13 @@ import {AngularMaterialModule} from './modules/angular-material.module';
     FooterComponent,
     AngularMaterialModule
   ],
-  imports: [
-    CommonModule,
-    FirebaseModule,
-    RouterModule,
-    AngularMaterialModule
-  ],
+    imports: [
+        CommonModule,
+        FirebaseModule,
+        RouterModule,
+        AngularMaterialModule,
+        FlexModule
+    ],
   providers: [
     AuthService,
     FirestoreService

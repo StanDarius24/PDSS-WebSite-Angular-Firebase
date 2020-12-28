@@ -55,8 +55,4 @@ export class AuthService {
     await this.router.navigate(['/']);
     return this.firestoreService.saveNewUserData(user);
   }
-
-  async getCurrentUser() {
-    return this.afAuth.currentUser;
-  }
 }

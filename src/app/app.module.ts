@@ -8,11 +8,13 @@ import {RouterModule} from '@angular/router';
 import {AppRoutingModule, routingComponents} from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FlexModule} from '@angular/flex-layout';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
