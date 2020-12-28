@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {FirestoreService} from '../../core/services/firestore.service';
 import {AuthService} from '../../core/services/auth.service';
 
 @Component({

@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './components/home/home.component';
+import {WelcomeComponent} from './components/welcome/welcome.component';
 import {ProductsComponent} from './components/products/products.component';
 import {AboutComponent} from './components/about/about.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {AdminComponent} from './components/admin/admin.component';
-import {AuthGuard} from './core/services/auth.guard';
+import {AuthGuard} from './core/services/guards/auth.guard';
+import {AdminGuard} from './core/services/guards/admin.guard';
+import {HomeComponent} from './components/home/home.component';
+import {UserGuard} from './core/services/guards/user.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'welcome',
+    component: WelcomeComponent,
   },
   {
     path: 'store',
@@ -19,12 +27,11 @@ const routes: Routes = [
   },
   {
     path: 'info',
-    component: AboutComponent
+    component: AboutComponent,
   },
   {
     path: 'admin',
     component: AdminComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -32,7 +39,7 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
     path: '**',
@@ -49,4 +56,12 @@ const routes: Routes = [
   ]
 })
 export class AppRoutingModule {}
-export const routingComponents = [HomeComponent, ProductsComponent, AboutComponent, LoginComponent, RegisterComponent, AdminComponent];
+export const routingComponents = [
+  WelcomeComponent,
+  HomeComponent,
+  ProductsComponent,
+  AboutComponent,
+  LoginComponent,
+  RegisterComponent,
+  AdminComponent
+];

@@ -15,7 +15,10 @@ export class AdminComponent implements OnInit {
   users: User[];
   displayedColumns: string[] = ['id', 'email', 'displayName', 'edit', 'delete'];
 
-  constructor(private firestoreService: FirestoreService, private formBuilder: FormBuilder) { }
+  constructor(
+    private firestoreService: FirestoreService,
+    private formBuilder: FormBuilder
+    ) { }
 
   ngOnInit(): void {
     this.firestoreService.getUsers().subscribe(users => {
@@ -23,7 +26,6 @@ export class AdminComponent implements OnInit {
     });
     this.userForm = this.formBuilder.group({
       uid: '',
-      email: '',
       displayName: '',
       role: ''
     });

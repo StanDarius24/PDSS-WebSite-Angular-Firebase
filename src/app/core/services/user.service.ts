@@ -11,6 +11,4 @@ export class UserService {
 
   constructor(private firestoreService: FirestoreService, private authService: AuthService) { }
 
-  updateUserData(oldUser, newUser) {
-  }
 }
