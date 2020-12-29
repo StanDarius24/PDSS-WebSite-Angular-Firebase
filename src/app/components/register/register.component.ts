@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AuthService} from '../../core/services/auth.service';
+import {User} from '../../core/models/user.model';
 
 @Component({
   selector: 'app-register',
@@ -26,6 +27,7 @@ export class RegisterComponent implements OnInit {
   }
 
   async onRegister() {
-    await this.authService.registerWithEmailPassword(this.registerForm.value);
+    const userData = this.registerForm.value;
+    await this.authService.registerWithEmailPassword(userData);
   }
 }

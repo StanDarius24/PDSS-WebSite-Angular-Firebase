@@ -4,6 +4,9 @@ export class User {
   displayName?: string;
   role = 'normal';
 
-  constructor() {
-  }
+  constructor(user) {
+      this.uid = user.uid;
+      this.email = user.email;
+      this.displayName = user.displayName;
+   }
 }
