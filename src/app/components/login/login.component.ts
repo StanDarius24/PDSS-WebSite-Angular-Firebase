@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../core/services/auth.service';
 import {Observable} from 'rxjs';
 import {User} from '../../core/models/user.model';
@@ -22,10 +22,27 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: '',
-      password: ''
+      email: ['', [
+        Validators.required,
+        Validators.email
+      ]],
+      password: ['', [
+        Validators.required
+      ]]
     });
     this.user$ = this.authService.user$;
+  }
+
+  get emailControl() {
+    return this.loginForm.controls.email;
+  }
+
+  get passwordControl() {
+    return this.loginForm.controls.password;
+  }
+
+  isFormValid() {
+    return this.loginForm.valid;
   }
 
   async onLogInWithGoogle() {
