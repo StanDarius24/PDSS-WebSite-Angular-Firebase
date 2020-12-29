@@ -7,7 +7,7 @@ import {switchMap} from 'rxjs/operators';
 import firebase from 'firebase';
 import auth = firebase.auth;
 import {Router} from '@angular/router';
-import {FirestoreService} from './firestore.service';
+import {FirestoreUserService} from './firestore-user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
-    private firestoreService: FirestoreService,
+    private firestoreUserService: FirestoreUserService,
     private router: Router
   ) {
     this.user$ = this.afAuth.authState.pipe(
@@ -34,25 +34,40 @@ export class AuthService {
 
   async logInWithGoogle() {
     const provider = new auth.GoogleAuthProvider();
-    const credential = await this.afAuth.signInWithPopup(provider);
-    await this.router.navigate(['/']);
-    return this.firestoreService.saveNewUserData(credential.user);
+    await this.afAuth.signInWithPopup(provider)
+      .then((resultCredential) => {
+        if (resultCredential.additionalUserInfo.isNewUser) {
+          console.log('new user - saving...');
+          this.saveUserInFirestore(resultCredential.user);
+        } else {
+          console.log('not a new user');
+        }
+      });
+    return this.navigateHome();
   }
 
   async logInWithEmailPassword(email, password) {
     await this.afAuth.signInWithEmailAndPassword(email, password);
-    return this.router.navigate(['/']);
+    return this.navigateHome();
   }
 
   async logOut() {
     await this.afAuth.signOut();
-    return this.router.navigate(['/']);
+    return this.navigateHome();
   }
 
   async registerWithEmailPassword(user) {
     const credential = await this.afAuth.createUserWithEmailAndPassword(user.email, user.password);
     user.uid = credential.user.uid;
+    await this.saveUserInFirestore(user);
+    return this.navigateHome();
+  }
+
+  private async navigateHome() {
     await this.router.navigate(['/']);
-    return this.firestoreService.saveNewUserData(user);
+  }
+
+  private async saveUserInFirestore(user) {
+    await this.firestoreUserService.saveNewUserData(user);
   }
 }

@@ -7,7 +7,7 @@ import {map} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class FirestoreService {
+export class FirestoreUserService {
   usersCollection: AngularFirestoreCollection<User>;
   readonly USERS_COLLECTION_PATH = 'users';
   users: Observable<User[]>;
@@ -29,32 +29,23 @@ export class FirestoreService {
     return this.users;
   }
 
-  createUserData(user) {
-    return {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName
-    };
-  }
-
-  getUserRef(user): AngularFirestoreDocument<User> {
-    return this.afs.doc(`${this.USERS_COLLECTION_PATH}/${user.uid}`);
+  getUserRef(userID): AngularFirestoreDocument<User> {
+    return this.afs.doc(`${this.USERS_COLLECTION_PATH}/${userID}`);
   }
 
   saveNewUserData(user) {
-    const userRef = this.getUserRef(user) ;
-
-    const data = Object.assign({role: 'normal'}, this.createUserData(user));
-
-    return userRef.set(data);
+    const userData = Object.assign({}, new User(user));
+    console.log(userData);
+    const userRef = this.getUserRef(user.uid) ;
+    return userRef.set(userData);
   }
 
   updateUserData(user) {
-    const userRef = this.getUserRef(user);
+    const userRef = this.getUserRef(user.uid);
     return userRef.update(user);
   }
 
   async deleteUser(user) {
-    return this.getUserRef(user).delete();
+    return this.getUserRef(user.uid).delete();
   }
 }

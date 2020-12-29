@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {User} from '../../core/models/user.model';
-import {FirestoreService} from '../../core/services/firestore.service';
+import {FirestoreUserService} from '../../core/services/firestore-user.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
   displayedColumns: string[] = ['id', 'email', 'displayName', 'edit', 'delete'];
 
   constructor(
-    private firestoreService: FirestoreService,
+    private firestoreService: FirestoreUserService,
     private formBuilder: FormBuilder
     ) { }
 
@@ -37,6 +37,7 @@ export class AdminComponent implements OnInit {
 
   async onUpdate() {
     await this.firestoreService.updateUserData(this.userForm.value);
+    this.userForm.reset();
   }
 
   async onDelete(selectedUser) {

@@ -4,7 +4,7 @@ import {FirebaseModule} from './modules/firebase.module';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {RouterModule} from '@angular/router';
-import {FirestoreService} from './services/firestore.service';
+import {FirestoreUserService} from './services/firestore-user.service';
 import {AuthService} from './services/auth.service';
 import {AngularMaterialModule} from './modules/angular-material.module';
 import {FlexModule} from '@angular/flex-layout';
@@ -29,7 +29,7 @@ import {FlexModule} from '@angular/flex-layout';
     ],
   providers: [
     AuthService,
-    FirestoreService
+    FirestoreUserService
   ]
 })
 export class CoreModule { }
