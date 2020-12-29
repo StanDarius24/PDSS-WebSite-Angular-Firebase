@@ -5,6 +5,14 @@
       <input matInput type="text" formControlName="email" id="email">
     </mat-form-field>
   </div>
+  <div *ngIf="emailControl.touched">
+    <div *ngIf="emailControl.hasError('required')">
+      <p>Trebuie sa introduci o adresa de email!</p>
+    </div>
+    <div *ngIf="emailControl.hasError('email')">
+      <p>Trebuie sa introduci o adresa de email valida!</p>
+    </div>
+  </div>
 
   <div>
     <mat-form-field class="modified-width">
@@ -12,8 +20,13 @@
       <input matInput type="password" formControlName="password" id="password">
     </mat-form-field>
   </div>
+  <div *ngIf="passwordControl.touched">
+    <div *ngIf="emailControl.hasError('required')">
+      <p>Trebuie sa introduci o parola!</p>
+    </div>
+  </div>
 
-  <button mat-raised-button color="primary" placeholder="Log in">LOG IN</button>
+  <button mat-raised-button color="primary" placeholder="Log in" [disabled]="!isFormValid()">LOG IN</button>
 </form>
 <br>
 <button mat-raised-button color="accent" (click)="onLogInWithGoogle()">LOG IN WITH GOOGLE</button>

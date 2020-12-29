@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.controls.password;
   }
 
-  get isFormValid() {
+  isFormValid() {
     return this.registerForm.valid;
   }
 
