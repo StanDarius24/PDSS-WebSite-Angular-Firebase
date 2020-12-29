@@ -5,12 +5,28 @@
       <input matInput type="text" formControlName="email" id="email">
     </mat-form-field>
   </div>
+  <div *ngIf="emailControl.touched">
+    <div *ngIf="emailControl.hasError('required')">
+      <p>Trebuie sa introduci o adresa de email!</p>
+    </div>
+    <div *ngIf="emailControl.hasError('email')">
+      <p>Trebuie sa introduci o adresa de email valida!</p>
+    </div>
+  </div>
 
   <div>
     <mat-form-field class="modified-width">
       <mat-label>Nume Prenume</mat-label>
       <input matInput type="text" formControlName="displayName" id="displayName">
     </mat-form-field>
+  </div>
+  <div *ngIf="displayNameControl.touched">
+    <div *ngIf="displayNameControl.hasError('required')">
+      <p>Trebuie sa introduci un nume!</p>
+    </div>
+    <div *ngIf="displayNameControl.hasError('minlength')">
+      <p>Numele trebuie sa aiba minim 3 caractere!</p>
+    </div>
   </div>
 
   <div>
@@ -19,5 +35,13 @@
       <input matInput type="password" formControlName="password" id="password">
     </mat-form-field>
   </div>
-  <button mat-raised-button type="submit">INREGISTRARE</button>
+  <div *ngIf="passwordControl.touched">
+    <div *ngIf="passwordControl.hasError('required')">
+      <p>Trebuie sa introduci o parola!</p>
+    </div>
+    <div *ngIf="passwordControl.hasError('pattern')">
+      <p>Parola trebuie sa aiba cel putin 8 caracter si sa contina minim 1 litera mica, 1 litera mare, 1 cifra/caracter special (!, @, #,...) </p>
+    </div>
+  </div>
+  <button mat-raised-button type="submit" [disabled]="!isFormValid">INREGISTRARE</button>
 </form>
