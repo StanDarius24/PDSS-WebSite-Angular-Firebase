@@ -7,8 +7,6 @@ import {LoginComponent} from './components/entry/login/login.component';
 import {RegisterComponent} from './components/entry/register/register.component';
 import {AdminComponent} from './components/admin/admin.component';
 import {HomeComponent} from './components/home/home.component';
-import {CategoryComponent} from './components/store/category/category.component';
-import {ListofcategoryComponent} from './components/store/listofcategory/listofcategory.component';
 
 const routes: Routes = [
   {
@@ -38,10 +36,6 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
-  },
-  {
-    path: 'category',
-    component: CategoryComponent
   },
   {
     path: '**',
