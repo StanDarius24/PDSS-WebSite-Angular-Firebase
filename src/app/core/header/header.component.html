@@ -1,10 +1,12 @@
 <mat-toolbar class="navbar">
   <div>
-    <a mat-button class="logo" routerLink="home">Ieftinache</a>
+    <a class="logo" href="#">
+      <img src="/assets/img/download.png" style="height: 50px">
+    </a>
   </div>
   <div *ngIf="user$ | async">
-    <a mat-button routerLink="home">ACASA</a>
-    <a mat-button routerLink="store">PRODUSE</a>
+    <a mat-button routerLink="home" (click)="navigate()" >CATEGORIE</a>
+    <a mat-button routerLink="store"(click)="navigate2()" >PRODUSE</a>
     <a mat-button routerLink="info">DESPRE</a>
   </div>
   <span class="flexExpand"></span>
