@@ -23,7 +23,7 @@ export class AddproductComponent implements OnInit {
   Filtru3:String;
   Filtru4:String;
   fb:String ="E gol";
-
+  
 
   constructor(public firebaseservice:FireBaseServiceService, public firebasestorage:AngularFireStorage) { }
 
@@ -85,42 +85,42 @@ export class AddproductComponent implements OnInit {
 
   create() :void
   {
-
+   
     const fpath = "/file" + this.Nume + this.Categorie +this.Pret;
-
+    
 
 
     const fileref = this.firebasestorage.ref(fpath);
 
     const task = this.firebasestorage.upload(fpath , this.path );
 
-    task.snapshotChanges()
-      .pipe(
-        finalize(() =>{
-          this.downloadURL = fileref.getDownloadURL();
-          this.downloadURL.subscribe(url => {
-            if(url)
-            {
-              this.fb = url;
-              this.adaugarea();
+      task.snapshotChanges()
+          .pipe(
+            finalize(() =>{
+              this.downloadURL = fileref.getDownloadURL();
+              this.downloadURL.subscribe(url => {
+                if(url)
+                {
+                this.fb = url;
+                this.adaugarea();
+                }
+                console.log(this.fb);
+              });
+            })
+          )
+          .subscribe(url =>{
+            if(url) {
+              console.log(url);
+              
             }
-            console.log(this.fb);
           });
-        })
-      )
-      .subscribe(url =>{
-        if(url) {
-          console.log(url);
-
-        }
-      });
+    
+         
 
 
+         
 
-
-
-
-
+    
 
   }
 

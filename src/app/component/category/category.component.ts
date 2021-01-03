@@ -1,25 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { FireBaseServiceService } from 'src/app/service/fire-base-service.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-
+  
   product: any;
-
+  Autoturisme = "Autoturisme";
+  Electronice = "Electronice";
+  Imobiliare = "Imobiliare";
+  Jobs = "Jobs";
   Slide1:String;
   Slide2:String;
   Slide3:String;
   Slide4:String;
   Slide5:String;
   dynamicSlides;
+ 
 
 
-
-  constructor(public firebaseservice:FireBaseServiceService) { }
+  constructor(public firebaseservice:FireBaseServiceService,public router:Router) { }
 
   ngOnInit(): void {
 
@@ -40,20 +44,20 @@ export class CategoryComponent implements OnInit {
       });
 
       console.log(this.product);
-
+        
 
       for(var counter:number = 0; counter< this.product.length ; counter++){
         if(this.product[counter].Categorie == "Imobiliare")
-          this.Slide1=this.product[counter].URL;
+        this.Slide1=this.product[counter].URL;
         else
         if(this.product[counter].Categorie == "Automobile")
-          this.Slide2=this.product[counter].URL;
+        this.Slide2=this.product[counter].URL;
         else
         if(this.product[counter].Categorie == "Electronice")
-          this.Slide3=this.product[counter].URL;
+        this.Slide3=this.product[counter].URL;
         else
         if(this.product[counter].Categorie == "Servicii")
-          this.Slide4=this.product[counter].URL;
+        this.Slide4=this.product[counter].URL;
 
         this.dynamicSlides = [
           {
@@ -80,14 +84,14 @@ export class CategoryComponent implements OnInit {
             alt:'Side 4',
             title:'Side 4'
           }
-
+          
         ]
 
-      }
+    }
+      
+  });
 
-    });
-
-
+ 
 
 
 
@@ -104,7 +108,7 @@ export class CategoryComponent implements OnInit {
     navText: ['&#8249', '&#8250;'],
     responsive: {
       0: {
-        items: 1
+        items: 1 
       },
       400: {
         items: 2
@@ -116,6 +120,10 @@ export class CategoryComponent implements OnInit {
     nav: true
   }
 
-
+  navigate(txt:String)
+  {
+    this.router.navigate(['listcategory',txt]).then();
+    console.log(txt);
+  }
 
 }

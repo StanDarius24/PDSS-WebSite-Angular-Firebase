@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "~11.0.5",
     "@angular/router": "~11.0.5",
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
+    "@ngrx/router-store": "^10.1.2",
+    "@ngrx/store": "^10.1.2",
     "bootstrap": "^4.5.3",
     "firebase": "^8.2.1",
     "ngx-owl-carousel-o": "^5.0.0",

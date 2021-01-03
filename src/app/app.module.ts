@@ -15,10 +15,23 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './component/register/register.component';
 import { FormElementsModule } from './shared/shared_modules/form-elements/form-elements.module';
-import { AddproductComponent } from './component/addproduct/addproduct.component';
-import { ListproductsComponent } from './component/listproducts/listproducts.component';
 import { CategoryComponent } from './component/category/category.component';
+import { AddproductComponent } from './component/addproduct/addproduct.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ProductComponent } from './component/product/product.component';
+import { RouterModule } from '@angular/router';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { ListofcategoryComponent } from './component/listofcategory/listofcategory.component';
+const appRoutes = [
+  { path: 'produs/:name' ,component: ProductComponent },
+  { path: '', redirectTo: '/category' , pathMatch: 'full' },
+  { path: 'list', component: ListComponent },
+  { path: 'category', component: CategoryComponent},
+  { path: 'listcategory/:name', component:ListofcategoryComponent },
+  ];
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +39,11 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     FooterComponent,
     ListComponent,
     RegisterComponent,
+    CategoryComponent,
     AddproductComponent,
-    ListproductsComponent,
-    CategoryComponent
+    ProductComponent,
+    ListofcategoryComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -38,9 +53,13 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AngularFireStorageModule,
     NgbModule,
     FormsModule,
-    CarouselModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    RouterModule,
+    StoreRouterConnectingModule.forRoot(),
+    RouterModule.forRoot(appRoutes),
+    CarouselModule,
+    StoreModule.forRoot({}, {}) 
   ],
   providers: [FireBaseServiceService],
   bootstrap: [AppComponent]

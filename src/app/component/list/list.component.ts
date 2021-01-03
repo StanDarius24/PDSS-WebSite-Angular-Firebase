@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FireBaseServiceService } from 'src/app/service/fire-base-service.service';
 import { AngularFireStorage } from '@angular/fire/storage';
-
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -13,15 +13,16 @@ export class ListComponent implements OnInit {
   Adress: string;
   Message: string;
   path:String;
-  url ="";
-  constructor(public fireservices:FireBaseServiceService,public storagephoto:AngularFireStorage) { }
 
+  url ="";
+  constructor(public router:Router, public fireservices:FireBaseServiceService,public storagephoto:AngularFireStorage) { }
+  
   ngOnInit(): void {
   }
 
   SaveMethod(){
     let Record={};
-
+    
     Record['Name'] = this.Name;
     Record['Age'] = this.Age;
     Record['Adress'] = this.Adress;
@@ -37,7 +38,9 @@ export class ListComponent implements OnInit {
     ).catch(error =>{
       console.log(error);
     });
+
     this.storagephoto.upload("/files" + Math.random() + this.path , this.path );
+
   }
 
   upload($event){
@@ -49,6 +52,13 @@ export class ListComponent implements OnInit {
     reader.onload=(event2:any)=>{
       this.url=event2.target.result
     };
-   }
   }
+  }
+  
+
+  navigate()
+  {
+    this.router.navigate(['produs',"Subaru"]).then();
+  }
+
 }

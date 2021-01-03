@@ -1,34 +1,31 @@
 .textcentru{
-  text-align: center;
+    text-align: center;
 }
 
 .culoarebuton{
-  color:rgb(25, 135, 84);
+    color:rgb(25, 135, 84);
 }
 .sizeinput{
-  width: 200px;
-  position: relative;
+    width: 200px;
+    position: relative;
 }
 .curcubeu {
-  animation: color-change 5s infinite;
-}
-
-@keyframes color-change {
-  0% { color: red; }
-  25% {color: rgb(247, 175, 175); }
-  50% { color: rgb(214, 157, 70); }
-  75% { color: rgb(255, 255, 0);}
-  100% { color: red; }
-}
-.descrieresize{
-  position: relative;
-  height: 100px;
-  width: 600px;
-}
-.sizefortextandstuff{
-  size: 100px;
-  font-weight: bolder;
-}
-.culoare2{
-  color: rgb(247, 175, 175);
-}
+    animation: color-change 5s infinite;
+  }
+  
+  @keyframes color-change {
+    0% { color: red; }
+    25% {color: rgb(247, 175, 175); }
+    50% { color: rgb(214, 157, 70); }
+    75% { color: rgb(255, 255, 0);}
+    100% { color: red; }
+  }
+  .descrieresize{
+      position: relative;
+      height: 100px;
+      width: 600px;
+  }
+  .sizefortextandstuff{
+      size: 100px;
+      font-weight: bolder;
+  }

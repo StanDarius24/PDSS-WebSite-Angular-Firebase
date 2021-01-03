@@ -40,4 +40,11 @@ export class RegisterComponent implements OnInit {
   get passwordFields(): string[] {
     return this._passwordFields;
   }
+
+
+  submit(): void{
+
+    console.log(this._textFields);
+
+  }
 }
