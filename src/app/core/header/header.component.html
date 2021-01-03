@@ -1,17 +1,17 @@
 <mat-toolbar class="navbar">
   <div>
-    <a mat-button class="logo" routerLink="home">Ieftinache</a>
+    <a mat-button class="logo" routerLink="/home">Ieftinache</a>
   </div>
   <div *ngIf="user$ | async">
-    <a mat-button routerLink="home">ACASA</a>
-    <a mat-button routerLink="store">PRODUSE</a>
-    <a mat-button routerLink="info">DESPRE</a>
+    <a mat-button routerLink="/home">ACASA</a>
+    <a mat-button routerLink="/store">PRODUSE</a>
+    <a mat-button routerLink="/info">DESPRE</a>
   </div>
   <span class="flexExpand"></span>
   <ng-template #entry>
     <div>
       <a mat-button routerLink="/login">INTRA IN CONT</a>
-      <a mat-button routerLink="register">INREGISTRARE</a>
+      <a mat-button routerLink="/register">INREGISTRARE</a>
     </div>
   </ng-template>
   <div *ngIf="user$ | async as user; else entry">
