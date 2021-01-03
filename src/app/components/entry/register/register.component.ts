@@ -1,13 +1,13 @@
 import {Component, forwardRef, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, NG_VALIDATORS, Validators} from '@angular/forms';
-import {AuthService} from '../../core/services/auth.service';
-import {User} from '../../core/models/user.model';
+import {AuthService} from '../../../core/services/auth.service';
+import {User} from '../../../core/models/user.model';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: [
-    '../style/style.scss',
+    '../../style/style.scss',
     './register.component.css']
 })
 export class RegisterComponent implements OnInit {
