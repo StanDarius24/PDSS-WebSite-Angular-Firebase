@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
 
   navigate2()
   {
-    console.log(this.username);
+    
     this.router.navigate(['addproduct',this.username]).then();
   }
 }

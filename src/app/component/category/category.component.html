@@ -1,40 +1,60 @@
-<div class="card-group">
-    <div class="card bg-primary">
-        <img class="imgClass center " src="../../../assets/img/automobile.png" style="cursor: pointer;"(click)="navigate(Autoturisme)"/>
-      <div class="card-body text-center">
-       <div class="sizefortextandstuff"> {{Autoturisme}} </div>
-    </div>
-    </div>
-   
-    <div class="card bg-warning">
-        <img class="imgClass center" src="../../../assets/img/Electronics.png" style="cursor: pointer;"(click)="navigate(Electronice)"/>
-      <div class="card-body text-center">
-        <p class="card-text sizefortextandstuff">{{Electronice}}</p>
-    </div>
-    </div>
+<div class="content" fxLayout="row wrap" fxLayoutGap="0px grid">
+  
+    <mat-card class="mat-elevation-z4" >
+     
+      
+      <img mat-card-image class="imgClass center " src="../../../assets/img/automobile.png" style="cursor: pointer;"(click)="navigate(Autoturisme)">
+      <mat-card-content>
+        <p class="center">
+          {{Autoturisme}}
+        </p>
+      </mat-card-content>
+      
+    </mat-card>
 
-    <div class="card bg-success">
-        <img class="imgClass center" src="../../../assets/img/imobiliare.png" style="cursor: pointer;"(click)="navigate(Imobiliare)"/>
-      <div class="card-body text-center">
-        <p class="card-text sizefortextandstuff">{{Imobiliare}}</p>
-    </div>
-    </div>
+    <mat-card class="mat-elevation-z4" >
+      
+      <img mat-card-image class="imgClass center" src="../../../assets/img/Electronics.png" style="cursor: pointer;"(click)="navigate(Electronice)"/>
+      <mat-card-content>
+        <p class="center">
+         {{Electronice}}
+        </p>
+      </mat-card-content>
+      
+    </mat-card>
 
-    <div class="card bg-danger">
-        <img class="imgClass center" src="../../../assets/img/jobs.png" style="cursor: pointer;"(click)="navigate(Jobs)"/>
-      <div class="card-body text-center">
-        <p class="card-text sizefortextandstuff">{{Jobs}}</p>
-    </div>
-    </div>
+    <mat-card class="mat-elevation-z4" >
+      
+      <img class="imgClass center" mat-card-image src="../../../assets/img/imobiliare.png" style="cursor: pointer;"(click)="navigate(Imobiliare)"/>
+      <mat-card-content>
+        <p class="center">
+          {{Imobiliare}}
+        </p>
+      </mat-card-content>
+      
+    </mat-card>
+
+    <mat-card class="mat-elevation-z4" >
+     
+      <img mat-card-image class="imgClass center" src="../../../assets/img/jobs.png" style="cursor: pointer;"(click)="navigate(Jobs)"/>
+      <mat-card-content>
+        <p class="center">
+         {{Jobs}}
+        </p>
+      </mat-card-content>
+      
+    </mat-card>
 
   </div>
-  
-<div class="delay center">
+
+
+
+<div class="center">
   <owl-carousel-o [options]="customOptions">
 
     <ng-container *ngFor="let slide of dynamicSlides">
       <ng-template carouselSlide [id]="slide.id">
-        <img class="sizeprof" [src]="slide.src" [alt]="slide.alt" [title]="slide.title">
+        <img class="imgClass" [src]="slide.src" [alt]="slide.alt" [title]="slide.title">
       </ng-template>
     </ng-container>
   

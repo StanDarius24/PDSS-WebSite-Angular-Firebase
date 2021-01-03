@@ -68,14 +68,14 @@ export class AddproductComponent implements OnInit {
       this.Filtru3="Sistem de operare";
       this.Filtru4="Marca";
     }
-    else if(this.Categorie=="Automobile")
+    else if(this.Categorie=="Autoturisme")
     {
       this.Filtru1="Marca";
       this.Filtru2="Caroserie";
       this.Filtru3="Combustibil";
       this.Filtru4="Anul achizitionarii";
     }
-    else if(this.Categorie=="Servicii")
+    else if(this.Categorie=="Jobs")
     {
       this.Filtru1="Durata";
       this.Filtru2="Contract";
