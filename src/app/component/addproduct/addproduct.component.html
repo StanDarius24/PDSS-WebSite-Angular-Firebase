@@ -1,0 +1,145 @@
+<div>
+    <br>
+  </div>
+  
+  <div class="row justify-content-center curcubeu sizefortextandstuff">
+    Salut {{nume}} !
+  </div>
+
+  <div class="row justify-content-center curcubeu sizefortextandstuff">
+    Adauga un anunt nou aici!
+  </div>
+  
+  <div>
+    <br>
+  </div>
+  
+  <div class="container-md">
+    <div class="form-group">
+      <div class="col-xs-6 ">
+        <input type="text" [(ngModel)]="Nume"  style="margin:0px auto; display:block;" align="center" class="form-control sizeinput" placeholder="Nume">
+      </div>
+    </div>
+  </div>
+  
+  <div>
+    <br>
+  </div>
+  
+  <div class="container-md">
+    <div class="form-group">
+      <div class="col-xs-6 ">
+        <input type="number" [(ngModel)]="Pret"  style="margin:0px auto; display:block;" align="center" class="form-control sizeinput" placeholder="Pret">
+      </div>
+    </div>
+  </div>
+  
+  <div>
+    <br>
+  </div>
+  
+  <div class="container-md">
+    <div class="form-group">
+      <div class="col-xs-6 ">
+  
+        <textarea [(ngModel)]="Descriere" align="center" class="form-control sizeinput descrieresize" placeholder="Descriere" style="margin:0px auto; display:block;" name="comments" id="comments"></textarea>
+      </div>
+    </div>
+  </div>
+  
+  <div>
+    <br>
+  </div>
+  
+  <div class="form-group textcentru">
+    <form>
+      <select name="Alege categoria" (change)="modificare($event)">
+        <option value="Alege categoria" >Alege categoria</option>
+        <option value="Imobiliare">Imobiliare</option>
+        <option value="Electronice">Electronice</option>
+        <option value="Automobile">Automobile</option>
+        <option value="Servicii">Servicii</option>
+      </select>
+      <br>
+    </form>
+  </div>
+  
+  <div>
+    <br>
+  </div>
+  
+  <div class="form-group">
+    <div class="culoarebuton">
+      <input style="margin:0px auto; display:block;" type="file" (change)="upload($event)" accept="*.png.jpg" id="">
+    </div>
+  </div>
+  
+  <div>
+    <br>
+  </div>
+  
+  <div class="container-md">
+    <div class="form-group">
+      <div class="col-xs-6 ">
+        <div class="row justify-content-center culoare2 sizefortextandstuff">
+        {{Filtru1}}
+        </div>
+        <input type="text" [(ngModel)]="Filtru1"  style="margin:0px auto; display:block;" align="center" class="form-control sizeinput" placeholder="{{Filtru1}}">
+      </div>
+    </div>
+  </div>
+  
+  <div>
+    <br>
+  </div>
+  
+  <div class="container-md">
+    <div class="form-group">
+      <div class="col-xs-6 ">
+        <div class="row justify-content-center culoare2 sizefortextandstuff">
+          {{Filtru2}}
+        </div>
+        <input type="text" [(ngModel)]="Filtru2"  style="margin:0px auto; display:block;" align="center" class="form-control sizeinput" placeholder="{{Filtru2}}">
+      </div>
+    </div>
+  </div>
+  
+  <div>
+    <br>
+  </div>
+  
+  <div class="container-md">
+    <div class="form-group">
+      <div class="col-xs-6 ">
+        <div class="row justify-content-center culoare2 sizefortextandstuff">
+          {{Filtru3}}
+        </div>
+        <input type="text" [(ngModel)]="Filtru3"  style="margin:0px auto; display:block;" align="center" class="form-control sizeinput" placeholder="{{Filtru3}}">
+      </div>
+    </div>
+  </div>
+  
+  <div>
+    <br>
+  </div>
+  
+  <div class="container-md">
+    <div class="form-group">
+      <div class="col-xs-6 ">
+        <div class="row justify-content-center culoare2 sizefortextandstuff">
+          {{Filtru4}}
+        </div>
+        <input type="text" [(ngModel)]="Filtru4"  style="margin:0px auto; display:block;" align="center" class="form-control sizeinput" placeholder="{{Filtru4}}">
+      </div>
+    </div>
+  </div>
+  
+  <div>
+    <br>
+  </div>
+  <div class="form-group textcentru">
+    <button (click)="create()" [disabled]="!Nume || !Pret || !Descriere || !Categorie" class="btn-outline-success btn-dark">CREATE</button>
+  </div>
+  <div class="form-group">
+    <h4 >{{Message}}</h4>
+  </div>

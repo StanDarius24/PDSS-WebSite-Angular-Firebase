@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "Ieftinache"
+  "defaultProject": "Ieftinache",
+  "cli": {
+    "analytics": false
+  }
 }

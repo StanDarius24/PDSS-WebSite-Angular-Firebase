@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import {AuthService} from '../services/auth.service';
 import {Observable} from 'rxjs';
 import {User} from '../models/user.model';
-
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,8 +12,8 @@ import {User} from '../models/user.model';
 export class HeaderComponent implements OnInit {
   user$: Observable<User>;
   isAdmin = false;
-
-  constructor(private authService: AuthService) {}
+  username: String;
+  constructor(private authService: AuthService,public router:Router) {}
 
   ngOnInit(): void {
     this.user$ = this.authService.user$;
@@ -28,11 +28,23 @@ export class HeaderComponent implements OnInit {
         } else {
           this.isAdmin = false;
         }
+        this.username=user.displayName;
       }
     });
   }
 
   async onLogOut() {
     await this.authService.logOut();
+  }
+
+  navigate()
+  {
+    this.router.navigate(['category']).then();
+  }
+
+  navigate2()
+  {
+    console.log(this.username);
+    this.router.navigate(['addproduct',this.username]).then();
   }
 }

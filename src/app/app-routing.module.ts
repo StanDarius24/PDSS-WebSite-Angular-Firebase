@@ -8,10 +8,31 @@ import {RegisterComponent} from './components/entry/register/register.component'
 import {AdminComponent} from './components/admin/admin.component';
 import {HomeComponent} from './components/home/home.component';
 
+import { AddproductComponent } from './component/addproduct/addproduct.component';
+import { ListComponent } from './component/list/list.component';
+import { ListofcategoryComponent } from './component/listofcategory/listofcategory.component';
+import { CategoryComponent } from './component/category/category.component';
+import { ProductComponent } from './component/product/product.component';
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'addproduct/:name',
+    component: AddproductComponent
+  },
+  { path: 'listcategory/:name', 
+  component:ListofcategoryComponent 
+},
+{ path: 'list', component: ListComponent },
+  { 
+    path: 'produs/:name',
+    component: ProductComponent 
+},
+  {
+    path: 'category',
+    component: CategoryComponent
   },
   {
     path: 'welcome',
@@ -59,5 +80,6 @@ export const routingComponents = [
   AboutComponent,
   LoginComponent,
   RegisterComponent,
+  CategoryComponent,
   AdminComponent
 ];
