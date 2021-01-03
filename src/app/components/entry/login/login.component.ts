@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../../core/services/auth.service';
+import {AuthService} from '../../../core/services/auth.service';
 import {Observable} from 'rxjs';
-import {User} from '../../core/models/user.model';
+import {User} from '../../../core/models/user.model';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: [
-    '../style/style.scss',
+    '../../style/style.scss',
     './login.component.css']
 })
 export class LoginComponent implements OnInit {

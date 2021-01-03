@@ -18,13 +18,13 @@ import {FlexModule} from '@angular/flex-layout';
     HeaderComponent,
     AngularMaterialModule
   ],
-    imports: [
+  imports: [
         CommonModule,
         FirebaseModule,
         RouterModule,
         AngularMaterialModule,
         FlexModule
-    ],
+  ],
   providers: [
     AuthService,
     FirestoreUserService
