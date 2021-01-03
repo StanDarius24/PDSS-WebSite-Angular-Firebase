@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -31,9 +32,19 @@ const appRoutes = [
   { path: 'listcategory/:name', component:ListofcategoryComponent },
   ];
 
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {CoreModule} from './core/core.module';
+import {RouterModule} from '@angular/router';
+import {AppRoutingModule, routingComponents} from './app-routing.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {FlexModule} from '@angular/flex-layout';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
+    AppComponent,
+    routingComponents,
+    HomeComponent
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -43,10 +54,16 @@ const appRoutes = [
     AddproductComponent,
     ProductComponent,
     ListofcategoryComponent
-    
+
   ],
   imports: [
     BrowserModule,
+    NoopAnimationsModule,
+    AppRoutingModule,
+    CoreModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FlexModule
     BrowserAnimationsModule,
     AppRoutingModule,
     FormElementsModule,
@@ -59,9 +76,9 @@ const appRoutes = [
     StoreRouterConnectingModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     CarouselModule,
-    StoreModule.forRoot({}, {}) 
+    StoreModule.forRoot({}, {})
   ],
-  providers: [FireBaseServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
