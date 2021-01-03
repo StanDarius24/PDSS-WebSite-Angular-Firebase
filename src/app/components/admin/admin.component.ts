@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../core/models/user.model';
 import {FirestoreUserService} from '../../core/services/firestore-user.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
@@ -13,7 +13,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class AdminComponent implements OnInit {
   userForm: FormGroup;
   users: User[];
-  displayedColumns: string[] = ['id', 'email', 'displayName', 'edit', 'delete'];
+  displayedColumns: string[] = ['id', 'email', 'displayName', 'role', 'edit', 'delete'];
 
   constructor(
     private firestoreService: FirestoreUserService,
