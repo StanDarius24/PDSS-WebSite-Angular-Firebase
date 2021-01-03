@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import {WelcomeComponent} from './components/welcome/welcome.component';
 import {ProductsComponent} from './components/products/products.component';
 import {AboutComponent} from './components/about/about.component';
-import {LoginComponent} from './components/login/login.component';
-import {RegisterComponent} from './components/register/register.component';
+import {LoginComponent} from './components/entry/login/login.component';
+import {RegisterComponent} from './components/entry/register/register.component';
 import {AdminComponent} from './components/admin/admin.component';
 import {HomeComponent} from './components/home/home.component';
+import {CategoryComponent} from './components/store/category/category.component';
+import {ListofcategoryComponent} from './components/store/listofcategory/listofcategory.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'category',
+    component: CategoryComponent
   },
   {
     path: '**',

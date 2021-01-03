@@ -20,6 +20,6 @@ export class FireBaseServiceService {
 
   create_NewProduct(Record)
   {
-    return this.fireservices.collection('Produse').add(Record);return
+    return this.fireservices.collection('Produse').add(Record);
   }
 }

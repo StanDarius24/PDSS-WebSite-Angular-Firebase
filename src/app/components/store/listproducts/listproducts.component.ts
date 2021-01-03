@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FireBaseServiceService} from '../../service/fire-base-service.service';
+import {FireBaseServiceService} from '../../../service/fire-base-service.service';
 
 @Component({
   selector: 'app-listproducts',
