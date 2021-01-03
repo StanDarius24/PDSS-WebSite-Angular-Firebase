@@ -58,6 +58,8 @@ export class CategoryComponent implements OnInit {
         else
         if(this.product[counter].Categorie == "Servicii")
         this.Slide4=this.product[counter].URL;
+        else
+        this.Slide5=this.product[counter].URL;
 
         this.dynamicSlides = [
           {
@@ -83,6 +85,12 @@ export class CategoryComponent implements OnInit {
             src:this.Slide4,
             alt:'Side 4',
             title:'Side 4'
+          },
+          {
+            id: 5,
+            src:this.Slide5,
+            alt:'Side 5',
+            title:'Side 5'
           }
           
         ]
