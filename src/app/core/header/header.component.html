@@ -6,8 +6,8 @@
   </div>
   <div *ngIf="user$ | async">
     <a mat-button routerLink="home" (click)="navigate()" >CATEGORIE</a>
-    <a mat-button routerLink="store"(click)="navigate2()" >PRODUSE</a>
-    <a mat-button routerLink="info">DESPRE</a>
+    <a mat-button routerLink="store"(click)="navigate2()" >ADAUGA PRODUSE</a>
+    <a mat-button routerLink="info" (click)="navigate3()">PRODUSELE TALE</a>
   </div>
   <span class="flexExpand"></span>
   <ng-template #entry>
