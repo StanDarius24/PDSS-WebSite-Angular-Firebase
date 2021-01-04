@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import {FireBaseServiceService} from "../../core/services/fire-base-service.service";
+import {FireBaseServiceService} from "../../../core/services/fire-base-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-about',
   templateUrl: './user-products.component.html',
   styleUrls: [
-    '../style/style.scss',
+    '../../style/style.scss',
     './user-products.component.scss']
 })
 export class UserProductsComponent implements OnInit {
   product:any;
   constructor(public firebaseservice:FireBaseServiceService, public route:ActivatedRoute, public router:Router ) { }
   nume:String;
-  mesaj:string;
+  mesaj="";
   ngOnInit(): void {
 
     this.route.params.subscribe(params => {
@@ -46,7 +46,11 @@ export class UserProductsComponent implements OnInit {
   }
   sterge(prd:any):void {
     console.log(prd.id);
+    this.mesaj="Produs sters :D";
     this.firebaseservice.delete_Product(prd.id);
   }
+  modifica(txt:string){
+    this.router.navigate(['modified',txt]).then();
 
+  }
 }

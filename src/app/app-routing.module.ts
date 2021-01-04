@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import {WelcomeComponent} from './components/welcome/welcome.component';
-import {UserProductsComponent} from './components/user-products/user-products.component';
+import {UserProductsComponent} from './components/store/user-products/user-products.component';
 import {LoginComponent} from './components/entry/login/login.component';
 import {RegisterComponent} from './components/entry/register/register.component';
 import {AdminComponent} from './components/admin/admin.component';
@@ -12,7 +12,7 @@ import {ListofcategoryComponent} from './components/store/listofcategory/listofc
 import {ListComponent} from './components/store/list/list.component';
 import {ProductComponent} from './components/store/product/product.component';
 import {CategoryComponent} from './components/store/category/category.component';
-
+import {UpdateproductComponent} from './components/store/updateproduct/updateproduct.component';
 
 
 const routes: Routes = [
@@ -27,7 +27,9 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
-  { path: '**', redirectTo: '' }
+  { path: 'modified/:name', component: UpdateproductComponent},
+  { path: '**', redirectTo: '' },
+
 ];
 
 @NgModule({
@@ -50,5 +52,6 @@ export const routingComponents = [
   AddproductComponent,
   ListofcategoryComponent,
   ListComponent,
-  ProductComponent
+  ProductComponent,
+  UpdateproductComponent
 ];

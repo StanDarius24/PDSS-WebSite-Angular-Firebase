@@ -18,6 +18,9 @@ export class ProductComponent implements OnInit {
   prov:any;
   nume:String;
   text4:String;
+  i1:number;
+  i2:number;
+  i3:number;
   constructor(public firebaseservice:FireBaseServiceService, public route:ActivatedRoute, public router:Router) { }
 
   ngOnInit(): void {
@@ -53,6 +56,12 @@ export class ProductComponent implements OnInit {
 
       this.n =this.product.length;
 
+      this.i1 = Math.floor(Math.random() * this.n);
+
+      this.i2 = Math.floor(Math.random() * this.n);
+
+      this.i3 = Math.floor(Math.random() * this.n);
+
       for(var i:number=0;i<this.n;i++)
       {
         if(this.nume == this.product[i].Nume)
@@ -71,37 +80,7 @@ export class ProductComponent implements OnInit {
 
 
 
-    if(this.prov.Categorie=="Autoturisme")
-  {
-    this.text1="Marca";
-    this.text2="Caroserie";
-    this.text3="An";
-    this.text4="Combustibil";
-  }
-  else
-  if(this.prov.Categorie=="Imobiliare")
-  {
-    this.text1="Metrii patrati construiti";
-    this.text2="Anul constructiei";
-    this.text3="Metrii patrati utili";
-    this.text4="Utilitati";
-  }
-  else
-  if(this.prov.Categorie=="Electronice")
-  {
-    this.text1="Tip";
-    this.text2="Anul aparitiei";
-    this.text3="Sistem de operare";
-    this.text4="Marca";
-  }
-  else
-  if(this.prov.Categorie=="Jobs")
-  {
-    this.text1="Perioada";
-    this.text2="Nr Telefon";
-    this.text3="Tip job";
-    this.text4="Locatie";
-  }
+   this.testing();
 
       console.log(this.product);
 
@@ -113,4 +92,53 @@ navigate(txt:String)
   this.router.navigate(['produs',txt]).then();
   console.log(txt);
 }
+
+  gotoproduct(nr:number)
+  {
+    this.prov = this.product[nr];
+    this.testing();
+
+    this.i1 = Math.floor(Math.random() * this.n);
+
+    this.i2 = Math.floor(Math.random() * this.n);
+
+    this.i3 = Math.floor(Math.random() * this.n);
+
+  }
+
+  testing()
+  {
+    if(this.prov.Categorie=="Autoturisme")
+    {
+      this.text1="Marca";
+      this.text2="Caroserie";
+      this.text3="An";
+      this.text4="Combustibil";
+    }
+    else
+    if(this.prov.Categorie=="Imobiliare")
+    {
+      this.text1="Metrii patrati construiti";
+      this.text2="Anul constructiei";
+      this.text3="Metrii patrati utili";
+      this.text4="Utilitati";
+    }
+    else
+    if(this.prov.Categorie=="Electronice")
+    {
+      this.text1="Tip";
+      this.text2="Anul aparitiei";
+      this.text3="Sistem de operare";
+      this.text4="Marca";
+    }
+    else
+    if(this.prov.Categorie=="Jobs")
+    {
+      this.text1="Perioada";
+      this.text2="Nr Telefon";
+      this.text3="Tip job";
+      this.text4="Locatie";
+    }
+  }
+
 }
