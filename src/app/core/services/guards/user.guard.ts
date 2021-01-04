@@ -12,16 +12,7 @@ export class UserGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.authService.user$.pipe(
-      take(1),
-      map(user => !!user),
-      tap(loggedIn => {
-        if (loggedIn) {
-          console.log('access denied - already logged in');
-          this.router.navigate(['/home']);
-        }
-      })
-    );
+    return true;
   }
 
 }

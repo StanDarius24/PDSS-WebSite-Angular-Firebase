@@ -14,6 +14,7 @@ import {FirestoreUserService} from './firestore-user.service';
 })
 export class AuthService {
   user$: Observable<User>;
+  authState;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -30,6 +31,10 @@ export class AuthService {
         }
       })
     );
+  }
+
+  isLoggedIn() {
+    return this.afAuth.authState !== null;
   }
 
   async logInWithGoogle() {
