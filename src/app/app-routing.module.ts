@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import {WelcomeComponent} from './components/welcome/welcome.component';
-import {ProductsComponent} from './components/store/products/products.component';
 import {AboutComponent} from './components/about/about.component';
 import {LoginComponent} from './components/entry/login/login.component';
 import {RegisterComponent} from './components/entry/register/register.component';
@@ -24,8 +23,7 @@ const routes: Routes = [
   { path: 'produs/:name', component: ProductComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'welcome', component: WelcomeComponent },
-  { path: 'store', component: ProductsComponent },
-  { path: 'info', component: AboutComponent },
+  { path: 'info/:name', component: AboutComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
@@ -44,7 +42,6 @@ export class AppRoutingModule {}
 export const routingComponents = [
   WelcomeComponent,
   HomeComponent,
-  ProductsComponent,
   AboutComponent,
   LoginComponent,
   RegisterComponent,

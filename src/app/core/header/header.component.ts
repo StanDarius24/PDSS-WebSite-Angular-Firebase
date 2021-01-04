@@ -44,7 +44,13 @@ export class HeaderComponent implements OnInit {
 
   navigate2()
   {
-    
+
     this.router.navigate(['addproduct',this.username]).then();
   }
+  navigate3()
+  {
+    this.router.navigate(['info',this.username]).then();
+  }
+
+
 }

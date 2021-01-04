@@ -4,6 +4,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from "rxjs";
 import { map, finalize } from 'rxjs/operators';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/firestore";
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
@@ -16,7 +17,6 @@ export class AddproductComponent implements OnInit {
   Message:String;
   Pret:number;
   Descriere:String;
-  Descriere:String;
   Categorie:String="Nimic";
   downloadURL: Observable<string>;
   path:String;
@@ -26,8 +26,13 @@ export class AddproductComponent implements OnInit {
   Filtru4:String;
   fb:String ="E gol";
   nume :String;
+  uid:string;
+  usr:Observable<any>;
+  collection:AngularFirestoreCollection<any>;
+  constructor( public firebaseservice:FireBaseServiceService,public route:ActivatedRoute, public firebasestorage:AngularFireStorage) {
 
-  constructor(public firebaseservice:FireBaseServiceService,public route:ActivatedRoute, public firebasestorage:AngularFireStorage) { }
+
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -157,7 +162,6 @@ export class AddproductComponent implements OnInit {
         this.Filtru3="";
         this.Filtru4="";
         this.Descriere="";
-        this.nume="";
         this.fb="";
         console.log(res);
         this.Message="Data Saved!";

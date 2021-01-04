@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore} from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FireBaseServiceService {
-
+  itemDoc: AngularFirestoreDocument;
   constructor(public fireservices: AngularFirestore) { }
 
   create_NewPerson(Record)
@@ -22,4 +22,13 @@ export class FireBaseServiceService {
   {
     return this.fireservices.collection('Produse').add(Record);
   }
+
+  delete_Product(poz:any)
+  {
+  this.itemDoc = this.fireservices.doc(`Produse/${poz.Descriere}`);
+    console.log(this.itemDoc);
+  this.itemDoc.delete();
+
+  }
+
 }

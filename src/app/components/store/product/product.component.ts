@@ -71,7 +71,7 @@ export class ProductComponent implements OnInit {
 
 
 
-    if(this.prov.Categorie=="Automobile")
+    if(this.prov.Categorie=="Autoturisme")
   {
     this.text1="Marca";
     this.text2="Caroserie";
@@ -95,7 +95,7 @@ export class ProductComponent implements OnInit {
     this.text4="Marca";
   }
   else
-  if(this.prov.Categorie=="Servicii")
+  if(this.prov.Categorie=="Jobs")
   {
     this.text1="Perioada";
     this.text2="Nr Telefon";
