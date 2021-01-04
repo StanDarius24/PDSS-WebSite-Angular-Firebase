@@ -1,59 +1,15 @@
-<div style="background-color: #15161d">
-    <div class="panel panel-primary text-center" *ngFor="let Mod of product">
-      <div class="container-md" style="background-color: dimgrey">
-      <div class="panel-heading">
-        <h3 class="panel-title curcubeu " style="margin-top: 2%">{{Mod.Nume}}</h3>
-      </div>
-      <div class="panel-body margine3d">
-        <div class="col-xs-10">
-          <div class="row">
-            <div class="col-xs-4">
-              <img class="imgeClass imaginerupe " [src]="Mod.URL" style="cursor: pointer;"(click)="selectProduct(Mod.Nume)"/>
-            </div>
-    
-   
-    
-    
-              <div class="col-xs-8">
-                <div class="row">
-                  <div class="col-xs-6 rosiatic">
-                    Pret
-                  </div>
-                  <div class="col-xs-6 rosiatic">
-                    : {{Mod.Pret}} lei
-                  </div>
-                </div>
-              </div>
-    
-              <div class="col-xs-8">
-                <div class="row">
-                  <div class="col-xs-6 rosiatic">
-                   Descriere
-                  </div>
-                  <div class="col-xs-6 rosiatic">
-                    : {{Mod.Descriere}}
-                  </div>
-                </div>
-              </div>
-    
-    
-              <div class="col-xs-8">
-                <div class="row">
-                  <div class="col-xs-6 rosiatic">
-                    Categorie
-                  </div>
-                  <div class="col-xs-6 rosiatic">
-                   : {{Mod.Categorie}}
-                  </div>
-                </div>
-              </div>
-    
-    
-            </div>
-          </div>
-    
-      </div>
+<div *ngFor="let Mod of product">
+  <div class="grid-wrapper">
+    <div class="left-grid-tile">
+      <img class="img-preview" [src]="Mod.URL" style="cursor: pointer;" (click)="selectProduct(Mod.Nume)"/>
     </div>
-      </div>
-    
+    <div class="right-grid-tile">
+      <a class="title" (click)="selectProduct(Mod.Nume)">{{Mod.Nume}}</a>
+      <h4 class="price"><strong>Pret:</strong> {{Mod.Pret}} lei</h4>
+      <h4><strong>Descriere:</strong> {{Mod.Descriere}}</h4>
+      <h4><strong>Categorie:</strong> {{Mod.Categorie}}</h4>
     </div>
+  </div>
+  <br>
+</div>
+

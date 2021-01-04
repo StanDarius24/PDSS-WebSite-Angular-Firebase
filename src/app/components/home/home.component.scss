@@ -1,0 +1,35 @@
+a:hover {
+  cursor: pointer;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  background-color: rgba(66, 66, 66, 0.5);
+  grid-auto-rows: 200px;
+  padding: 10px 10px;
+}
+
+.right-grid-tile {
+  display: grid;
+  justify-items: start;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.img-preview {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.price {
+  color: greenyellow;
+}
+
+
+

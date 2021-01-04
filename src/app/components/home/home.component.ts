@@ -6,7 +6,7 @@ import {FireBaseServiceService} from '../../core/services/fire-base-service.serv
   templateUrl: './home.component.html',
   styleUrls: [
     '../style/style.scss',
-    './home.component.css']
+    './home.component.scss']
 })
 export class HomeComponent implements OnInit {
   product;

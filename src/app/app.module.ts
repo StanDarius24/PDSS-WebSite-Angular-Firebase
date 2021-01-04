@@ -10,6 +10,7 @@ import {AppRoutingModule, routingComponents} from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CarouselModule} from 'ngx-owl-carousel-o';
+import {FlexModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {CarouselModule} from 'ngx-owl-carousel-o';
     CoreModule,
     ReactiveFormsModule,
     FormsModule,
-    CarouselModule
+    CarouselModule,
+    FlexModule
   ],
   providers: [],
   bootstrap: [AppComponent]
