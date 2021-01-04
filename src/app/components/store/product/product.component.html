@@ -1,108 +1,26 @@
-<h1 class="textsize">{{product[0].Categorie}}</h1>
-<img class="imgClass center" src="{{prov.URL}}" alt ="Card image">
-
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        <div class="textsize">
-                        Pret: {{prov.Pret}} lei
-                        </div>
-                    </th>
-                    <th>
-                        <div class="textsize">
-                        
-                        </div>
-                    </th>
-                    
-                </tr>
-
-                <tr>
-                    <th>
-                        <div class="textsize">
-                        Descriere: {{prov.Descriere}} 
-                        </div>
-                    </th>
-                    <th>
-                        <div class="textsize">
-                        
-                        </div>
-                    </th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="textsize">
-                            {{text1}} 
-                        </div>  
-                    </td>
-                    <td>
-                        <div class="textsize">
-                            {{prov.Filtru1}} 
-                        </div>  
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td>
-                        <div class="textsize">
-                        {{text2}}
-                        </div>  
-                    </td>
-                    <td>
-                        <div class="textsize">
-                            {{prov.Filtru2}} 
-                        </div>  
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td class="lung">
-                        <div class="textsize">
-                        {{text3}}
-                        </div>  
-                    </td>
-                    <td>
-                        <div class="textsize">
-                            {{prov.Filtru3}} 
-                        </div>  
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td>
-                        <div class="textsize">
-                        {{text4}}
-                        </div>  
-                    </td>
-                    <td>
-                        <div class="textsize">
-                            {{prov.Filtru4}} 
-                        </div>  
-                    </td>
-                    
-                </tr>
-                
-                <tr>
-
-                    <td>
-                        <img class="imgClass center" style="cursor: pointer;" (click)="navigate(product[1].Nume)" src="{{product[1].URL}}" alt ="Card image">
-                    </td>
-
-                    <td>
-                        <img class="imgClass center" style="cursor: pointer;" (click)="navigate(product[2].Nume)" src="{{product[2].URL}}" alt ="Card image">
-                    </td>
-                    <td>
-                        <img class="imgClass center" style="cursor: pointer;" (click)="navigate(product[3].Nume)" src="{{product[3].URL}}" alt ="Card image">
-                    </td>
-
-                </tr>
-
-            </tbody>
-        </table>
+<div class="grid-2-rows">
+  <div class="grid-2-columns">
+    <img class="image" src="{{prov.URL}}" alt="Card image">
+    <div fxLayout="column" fxLayoutAlign="space-between start">
+      <h1 class="title">{{product[0].Categorie}}</h1>
+      <div class="text-details">
+        <p style="color: greenyellow"><strong>Pret:</strong> {{prov.Pret}} lei</p>
+        <p><strong>Descriere:</strong> {{prov.Descriere}}</p>
+        <p><strong>{{text1}}:</strong> {{prov.Filtru1}}</p>
+        <p><strong>{{text2}}:</strong> {{prov.Filtru2}}</p>
+        <p><strong>{{text3}}:</strong> {{prov.Filtru3}}</p>
+        <p><strong>{{text4}}:</strong> {{prov.Filtru4}}</p>
+      </div>
     </div>
-   
+  </div>
+  <div class="grid-3-columns">
+    <img class="thumbnail" style="cursor: pointer;" (click)="navigate(product[1].Nume)" src="{{product[1].URL}}"
+         alt="Card image">
+    <img class="thumbnail" style="cursor: pointer;" (click)="navigate(product[2].Nume)" src="{{product[2].URL}}"
+         alt="Card image">
+    <img class="thumbnail" style="cursor: pointer;" (click)="navigate(product[3].Nume)" src="{{product[3].URL}}"
+         alt="Card image">
+  </div>
+</div>
+
 

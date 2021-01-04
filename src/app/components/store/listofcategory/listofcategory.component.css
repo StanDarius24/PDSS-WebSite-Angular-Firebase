@@ -11,6 +11,11 @@ a:hover {
   box-shadow: 1px 1.25px 7.5px #1f1f1f;
 }
 
+.grid-wrapper:hover {
+  box-shadow: 1px 1.25px 7.5px white;
+
+}
+
 .right-grid-tile {
   display: grid;
   justify-items: start;
