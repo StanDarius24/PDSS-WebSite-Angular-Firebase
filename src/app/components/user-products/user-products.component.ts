@@ -4,12 +4,12 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-about',
-  templateUrl: './about.component.html',
+  templateUrl: './user-products.component.html',
   styleUrls: [
     '../style/style.scss',
-    './about.component.scss']
+    './user-products.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class UserProductsComponent implements OnInit {
   product:any;
   constructor(public firebaseservice:FireBaseServiceService, public route:ActivatedRoute, public router:Router ) { }
   nume:String;
