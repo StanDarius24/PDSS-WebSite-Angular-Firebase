@@ -25,7 +25,7 @@ export class FireBaseServiceService {
 
   delete_Product(poz:any)
   {
-  this.itemDoc = this.fireservices.doc(`Produse/${poz.Descriere}`);
+  this.itemDoc = this.fireservices.doc(`Produse/${poz}`);
     console.log(this.itemDoc);
   this.itemDoc.delete();
 

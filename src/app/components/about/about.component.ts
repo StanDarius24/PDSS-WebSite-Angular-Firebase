@@ -24,6 +24,7 @@ export class AboutComponent implements OnInit {
 
       this.product = data.map(e => {
         return {
+          id: e.payload.doc.id,
           Nume: e.payload.doc.data()['Nume'],
           Pret: e.payload.doc.data()['Pret'],
           Categorie: e.payload.doc.data()['Categorie'],
@@ -33,7 +34,7 @@ export class AboutComponent implements OnInit {
           Filtru3: e.payload.doc.data()['Filtru3'],
           Filtru4: e.payload.doc.data()['Filtru4'],
           URL: e.payload.doc.data()['URL'],
-          Vanzator: e.payload.doc.data()['Vanzator'],
+          Vanzator : e.payload.doc.data()['Vanzator'],
         }
       }).filter(data => data.Vanzator === this.nume);
 
@@ -44,8 +45,8 @@ export class AboutComponent implements OnInit {
 
   }
   sterge(prd:any):void {
-    console.log(prd);
-    this.firebaseservice.delete_Product(prd);
+    console.log(prd.id);
+    this.firebaseservice.delete_Product(prd.id);
   }
 
 }
