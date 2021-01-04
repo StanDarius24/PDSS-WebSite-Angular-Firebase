@@ -26,7 +26,7 @@ export class ProductComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.nume=params['name']
     });
-     
+
     console.log(this.nume);
 
 
@@ -45,12 +45,12 @@ export class ProductComponent implements OnInit {
           URL: e.payload.doc.data()['URL'],
         }
       });
-      
 
-     
-      
 
-    
+
+
+
+
       this.n =this.product.length;
 
       for(var i:number=0;i<this.n;i++)
@@ -58,18 +58,18 @@ export class ProductComponent implements OnInit {
         if(this.nume == this.product[i].Nume)
           {
             this.val=i;
-            
+
             this.prov=this.product[i];
-          } 
-          
+          }
+
       }
 
-     
-      
-     
 
-      
-      
+
+
+
+
+
 
     if(this.prov.Categorie=="Automobile")
   {
