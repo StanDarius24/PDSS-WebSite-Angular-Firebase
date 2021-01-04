@@ -7,7 +7,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
-  styleUrls: ['./addproduct.component.css']
+  styleUrls: [
+    '../../style/style.scss',
+    './addproduct.component.css']
 })
 export class AddproductComponent implements OnInit {
 
@@ -15,7 +17,6 @@ export class AddproductComponent implements OnInit {
   Nume:String;
   Message:String;
   Pret:number;
-  Descriere:String;
   Descriere:String;
   Categorie:String="Nimic";
   downloadURL: Observable<string>;

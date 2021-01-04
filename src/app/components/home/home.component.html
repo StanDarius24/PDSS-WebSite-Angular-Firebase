@@ -4,7 +4,7 @@
       <img class="img-preview" [src]="Mod.URL" style="cursor: pointer;" (click)="selectProduct(Mod.Nume)"/>
     </div>
     <div class="right-grid-tile">
-      <a class="title" (click)="selectProduct(Mod.Nume)">{{Mod.Nume}}</a>
+      <a mat-button class="title" (click)="selectProduct(Mod.Nume)">{{Mod.Nume}}</a>
       <h4 class="price"><strong>Pret:</strong> {{Mod.Pret}} lei</h4>
       <h4><strong>Descriere:</strong> {{Mod.Descriere}}</h4>
       <h4><strong>Categorie:</strong> {{Mod.Categorie}}</h4>

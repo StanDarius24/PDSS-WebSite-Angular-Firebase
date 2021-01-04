@@ -12,7 +12,7 @@
 .curcubeu {
     animation: color-change 5s infinite;
   }
-  
+
   @keyframes color-change {
     0% { color: red; }
     25% {color: rgb(247, 175, 175); }
