@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FireBaseServiceService } from 'src/app/service/fire-base-service.service';
+import { FireBaseServiceService } from 'src/app/core/services/fire-base-service.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import {Router} from "@angular/router";
 @Component({
@@ -16,13 +16,13 @@ export class ListComponent implements OnInit {
 
   url ="";
   constructor(public router:Router, public fireservices:FireBaseServiceService,public storagephoto:AngularFireStorage) { }
-  
+
   ngOnInit(): void {
   }
 
   SaveMethod(){
     let Record={};
-    
+
     Record['Name'] = this.Name;
     Record['Age'] = this.Age;
     Record['Adress'] = this.Adress;
@@ -54,7 +54,7 @@ export class ListComponent implements OnInit {
     };
   }
   }
-  
+
 
   navigate()
   {

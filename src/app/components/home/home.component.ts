@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FireBaseServiceService } from 'src/app/service/fire-base-service.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
+import {FireBaseServiceService} from '../../core/services/fire-base-service.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,8 +9,8 @@ import {ActivatedRoute, Router} from '@angular/router';
     './home.component.css']
 })
 export class HomeComponent implements OnInit {
-  product:any;
-  constructor(public firebaseservice:FireBaseServiceService,public router:Router) { }
+  product;
+  constructor(private firebaseservice: FireBaseServiceService, public router: Router) { }
 
   ngOnInit(): void {
     this.firebaseservice.get_Products().subscribe(data =>{

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FireBaseServiceService } from 'src/app/service/fire-base-service.service';
+import { FireBaseServiceService } from 'src/app/core/services/fire-base-service.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import {Router} from "@angular/router";
 @Component({
@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  
+
   product: any;
   Autoturisme = "Autoturisme";
   Electronice = "Electronice";
@@ -20,7 +20,7 @@ export class CategoryComponent implements OnInit {
   Slide4:String;
   Slide5:String;
   dynamicSlides;
- 
+
 
 
   constructor(public firebaseservice:FireBaseServiceService,public router:Router) { }
@@ -44,7 +44,7 @@ export class CategoryComponent implements OnInit {
       });
 
       console.log(this.product);
-        
+
 
       for(var counter:number = 0; counter< this.product.length ; counter++){
         if(this.product[counter].Categorie == "Imobiliare")
@@ -92,14 +92,14 @@ export class CategoryComponent implements OnInit {
             alt:'Side 5',
             title:'Side 5'
           }
-          
+
         ]
 
     }
-      
+
   });
 
- 
+
 
 
 
@@ -116,7 +116,7 @@ export class CategoryComponent implements OnInit {
     navText: ['&#8249', '&#8250;'],
     responsive: {
       0: {
-        items: 1 
+        items: 1
       },
       400: {
         items: 2

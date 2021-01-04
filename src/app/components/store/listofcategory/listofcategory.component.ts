@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FireBaseServiceService } from 'src/app/service/fire-base-service.service';
+import { FireBaseServiceService } from 'src/app/core/services/fire-base-service.service';
 import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-listofcategory',
@@ -17,7 +17,7 @@ export class ListofcategoryComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.nume=params['name']
     });
-   
+
     this.firebaseservice.get_Products().subscribe(data =>{
 
       this.product = data.map(e => {
@@ -37,10 +37,10 @@ export class ListofcategoryComponent implements OnInit {
 
       console.log(this.product);
   });
-  
-  
 
-  
+
+
+
 }
 
 selectProduct(txt:String)

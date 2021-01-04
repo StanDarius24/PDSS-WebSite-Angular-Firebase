@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FireBaseServiceService } from 'src/app/service/fire-base-service.service';
+import { FireBaseServiceService } from 'src/app/core/services/fire-base-service.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from "rxjs";
-import { map, finalize } from "rxjs/operators";
+import { map, finalize } from 'rxjs/operators';
+import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
@@ -15,6 +16,7 @@ export class AddproductComponent implements OnInit {
   Message:String;
   Pret:number;
   Descriere:String;
+  Descriere:String;
   Categorie:String="Nimic";
   downloadURL: Observable<string>;
   path:String;
@@ -23,11 +25,15 @@ export class AddproductComponent implements OnInit {
   Filtru3:String;
   Filtru4:String;
   fb:String ="E gol";
-  
+  nume :String;
 
-  constructor(public firebaseservice:FireBaseServiceService, public firebasestorage:AngularFireStorage) { }
+  constructor(public firebaseservice:FireBaseServiceService,public route:ActivatedRoute, public firebasestorage:AngularFireStorage) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.nume=params['name'];
+    });
+
   }
 
 
@@ -63,14 +69,14 @@ export class AddproductComponent implements OnInit {
       this.Filtru3="Sistem de operare";
       this.Filtru4="Marca";
     }
-    else if(this.Categorie=="Automobile")
+    else if(this.Categorie=="Autoturisme")
     {
       this.Filtru1="Marca";
       this.Filtru2="Caroserie";
       this.Filtru3="Combustibil";
       this.Filtru4="Anul achizitionarii";
     }
-    else if(this.Categorie=="Servicii")
+    else if(this.Categorie=="Jobs")
     {
       this.Filtru1="Durata";
       this.Filtru2="Contract";
@@ -85,9 +91,9 @@ export class AddproductComponent implements OnInit {
 
   create() :void
   {
-   
+
     const fpath = "/file" + this.Nume + this.Categorie +this.Pret;
-    
+
 
 
     const fileref = this.firebasestorage.ref(fpath);
@@ -111,16 +117,16 @@ export class AddproductComponent implements OnInit {
           .subscribe(url =>{
             if(url) {
               console.log(url);
-              
+
             }
           });
-    
-         
 
 
-         
 
-    
+
+
+
+
 
   }
 
@@ -137,7 +143,7 @@ export class AddproductComponent implements OnInit {
     Record['Filtru2'] = this.Filtru2;
     Record['Filtru3'] = this.Filtru3;
     Record['Filtru4'] = this.Filtru4;
-
+    Record['Vanzator'] = this.nume;
     console.log(Record);
     this.Message="Produs adaugat";
 
@@ -151,6 +157,7 @@ export class AddproductComponent implements OnInit {
         this.Filtru3="";
         this.Filtru4="";
         this.Descriere="";
+        this.nume="";
         this.fb="";
         console.log(res);
         this.Message="Data Saved!";

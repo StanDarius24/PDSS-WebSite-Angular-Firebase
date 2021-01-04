@@ -1,48 +1,48 @@
 <div class="content" fxLayout="row wrap" fxLayoutGap="0px grid">
-  
+
     <mat-card class="mat-elevation-z4" >
-     
-      
-      <img mat-card-image class="imgClass center " src="../../../assets/img/automobile.png" style="cursor: pointer;"(click)="navigate(Autoturisme)">
+
+
+      <img mat-card-image class="imgClass center " src="../../../../assets/img/automobile.png" style="cursor: pointer;" (click)="navigate(Autoturisme)">
       <mat-card-content>
         <p class="center">
           {{Autoturisme}}
         </p>
       </mat-card-content>
-      
+
     </mat-card>
 
     <mat-card class="mat-elevation-z4" >
-      
-      <img mat-card-image class="imgClass center" src="../../../assets/img/Electronics.png" style="cursor: pointer;"(click)="navigate(Electronice)"/>
+
+      <img mat-card-image class="imgClass center" src="../../../../assets/img/Electronics.png" style="cursor: pointer;" (click)="navigate(Electronice)"/>
       <mat-card-content>
         <p class="center">
          {{Electronice}}
         </p>
       </mat-card-content>
-      
+
     </mat-card>
 
     <mat-card class="mat-elevation-z4" >
-      
-      <img class="imgClass center" mat-card-image src="../../../assets/img/imobiliare.png" style="cursor: pointer;"(click)="navigate(Imobiliare)"/>
+
+      <img class="imgClass center" mat-card-image src="../../../../assets/img/imobiliare.png" style="cursor: pointer;" (click)="navigate(Imobiliare)"/>
       <mat-card-content>
         <p class="center">
           {{Imobiliare}}
         </p>
       </mat-card-content>
-      
+
     </mat-card>
 
     <mat-card class="mat-elevation-z4" >
-     
-      <img mat-card-image class="imgClass center" src="../../../assets/img/jobs.png" style="cursor: pointer;"(click)="navigate(Jobs)"/>
+
+      <img mat-card-image class="imgClass center" src="../../../../assets/img/jobs.png" style="cursor: pointer;" (click)="navigate(Jobs)"/>
       <mat-card-content>
         <p class="center">
          {{Jobs}}
         </p>
       </mat-card-content>
-      
+
     </mat-card>
 
   </div>
@@ -57,7 +57,7 @@
         <img class="imgClass" [src]="slide.src" [alt]="slide.alt" [title]="slide.title">
       </ng-template>
     </ng-container>
-  
+
   </owl-carousel-o>
 
-</div>  
+</div>
