@@ -3,6 +3,7 @@ import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} 
 import {User} from '../models/user.model';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {UserService} from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class FirestoreUserService {
   readonly USERS_COLLECTION_PATH = 'users';
   users: Observable<User[]>;
 
-  constructor(private afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore, private userService: UserService) {
     this.usersCollection = this.afs.collection(this.USERS_COLLECTION_PATH);
 
     this.users = this.usersCollection.snapshotChanges()
@@ -33,16 +34,14 @@ export class FirestoreUserService {
     return this.afs.doc(`${this.USERS_COLLECTION_PATH}/${userID}`);
   }
 
-  saveNewUserData(user) {
-    const userData = Object.assign({}, new User(user));
+  saveNewUserData(data) {
+    const userData = Object.assign({}, this.userService.getFormattedUserData(data));
     console.log(userData);
-    const userRef = this.getUserRef(user.uid) ;
-    return userRef.set(userData);
+    return this.getUserRef(userData.uid).set(userData);
   }
 
-  updateUserData(user) {
-    const userRef = this.getUserRef(user.uid);
-    return userRef.update(user);
+  updateUserData(data) {
+    return this.getUserRef(data.uid).update(data);
   }
 
   async deleteUser(user) {

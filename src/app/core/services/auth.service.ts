@@ -33,21 +33,12 @@ export class AuthService {
     );
   }
 
-  isLoggedIn() {
-    return this.afAuth.authState !== null;
-  }
-
   async logInWithGoogle() {
     const provider = new auth.GoogleAuthProvider();
-    await this.afAuth.signInWithPopup(provider)
-      .then((resultCredential) => {
-        if (resultCredential.additionalUserInfo.isNewUser) {
-          console.log('new user - saving...');
-          this.saveUserInFirestore(resultCredential.user);
-        } else {
-          console.log('not a new user');
-        }
-      });
+    const userCredential =  await this.afAuth.signInWithPopup(provider);
+    if (userCredential.additionalUserInfo.isNewUser) {
+      await this.saveUserInFirestore(userCredential.user);
+    }
     return this.navigateHome();
   }
 
@@ -72,7 +63,7 @@ export class AuthService {
     await this.router.navigate(['/']);
   }
 
-  private async saveUserInFirestore(user) {
-    await this.firestoreUserService.saveNewUserData(user);
+  private async saveUserInFirestore(data) {
+    await this.firestoreUserService.saveNewUserData(data);
   }
 }
