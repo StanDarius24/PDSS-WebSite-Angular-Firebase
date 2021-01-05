@@ -11,11 +11,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CarouselModule} from 'ngx-owl-carousel-o';
 import {FlexModule} from '@angular/flex-layout';
+import { UpdateproductComponent } from './components/store/updateproduct/updateproduct.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    UpdateproductComponent
   ],
   imports: [
     BrowserModule,

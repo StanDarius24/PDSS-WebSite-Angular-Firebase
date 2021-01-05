@@ -1,0 +1,99 @@
+<div>
+  {{prod.Nume}}
+</div>
+
+
+<div class="container-md">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-7">
+      <div class="titlu double ">{{product.Nume}}</div>
+
+
+      <div class=" ods rosiatic">Pret: {{product.Pret}} lei</div>
+      <div class="ods rosiatic">Categorie: {{product.Descriere}}</div>
+      <div class=" ods rosiatic">Data: {{product.Filtru1}}</div>
+      <div class=" ods rosiatic ">Descriere: {{product.Filtru2}}</div>
+      <div class="col-sm-3"></div>
+    </div>
+  </div>
+</div>
+<form #myform="ngForm" (ngSubmit)="submitForm(myform.value)">
+  <div class="form-group text-center rosiatic titlu">
+    <label>Nume nou</label>
+    <div class="container-sm">
+      <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+
+          <input  name="name"  ngModel type="text" [(ngModel)]="product.Nume"  class="form-control text-center font-weight-bold">
+        </div>
+        <div class="col-sm-3">
+        </div>
+
+
+      </div>
+    </div>
+
+    <label>Pret nou</label>
+    <div class="container-sm">
+      <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-md-6">
+          <input  name="pret" ngModel type="text" [(ngModel)]="product.Pret" class="form-control text-center font-weight-bold">
+        </div>
+        <div class="col-sm-3">
+        </div>
+      </div>
+    </div>
+
+
+    <label>Descriere noua</label>
+    <div class="container-md">
+      <div class="row">
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-md-6">
+          <input  name="descriere" ngModel type="text" [(ngModel)]="product.Descriere"  class="form-control text-center font-weight-bold">
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+      </div>
+    </div>
+
+    <label>Datalansarii noua</label>
+    <div class="container-md">
+      <div class="row">
+
+
+
+        <div class="col-sm-3"></div>
+        <div class="col-md-6">
+          <input  name="datalansarii" ngModel type="text" [(ngModel)]="product.Filtru1"  class="form-control text-center font-weight-bold">
+        </div>
+      </div>
+    </div>
+
+    <label>Poza noua</label>
+    <div class="container-md">
+      <div class="row">
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-md-6">
+          <input  name="picture" ngModel type="text" [(ngModel)]="product.Filtru2" class="form-control text-center font-weight-bold">
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="panel-footer text-center">
+      <input style="margin-top: 2%; border-radius: 20px; background-color: red; color: wheat" type="submit" value="Edit" />
+    </div>
+
+  </div>
