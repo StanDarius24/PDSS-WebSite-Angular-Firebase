@@ -1,19 +1,33 @@
-<div>
-  {{prod.Nume}}
-</div>
+
+
 
 
 <div class="container-md">
   <div class="row">
-    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
     <div class="col-sm-7">
-      <div class="titlu double ">{{product.Nume}}</div>
+      <ng-container *ngIf="prod">
+      <div class="titlu double ">{{prod.Nume}}</div>
+</ng-container>
+      <ng-container *ngIf="prod">
+      <div class=" ods rosiatic">Pret: {{prod.Pret}} lei</div>
+      </ng-container>
+        <ng-container *ngIf="prod">
+      <div class="ods rosiatic">Descriere: {{prod.Descriere}}</div>
+        </ng-container>
+          <ng-container *ngIf="prod">
+      <div class=" ods rosiatic">Filtru1: {{prod.Filtru1}}</div>
+          </ng-container>
+            <ng-container *ngIf="prod">
+      <div class=" ods rosiatic ">Filtru2: {{prod.Filtru2}}</div>
+            </ng-container>
+      <ng-container *ngIf="prod">
+        <div class=" ods rosiatic">Filtru3: {{prod.Filtru3}}</div>
+      </ng-container>
+      <ng-container *ngIf="prod">
+        <div class=" ods rosiatic ">Filtru4: {{prod.Filtru4}}</div>
+      </ng-container>
 
-
-      <div class=" ods rosiatic">Pret: {{product.Pret}} lei</div>
-      <div class="ods rosiatic">Categorie: {{product.Descriere}}</div>
-      <div class=" ods rosiatic">Data: {{product.Filtru1}}</div>
-      <div class=" ods rosiatic ">Descriere: {{product.Filtru2}}</div>
       <div class="col-sm-3"></div>
     </div>
   </div>
@@ -27,7 +41,7 @@
         </div>
         <div class="col-sm-6">
 
-          <input  name="name"  ngModel type="text" [(ngModel)]="product.Nume"  class="form-control text-center font-weight-bold">
+          <input  name="Nume"  ngModel type="text" [(ngModel)]="product.Nume"  class="form-control text-center font-weight-bold">
         </div>
         <div class="col-sm-3">
         </div>
@@ -42,7 +56,7 @@
         <div class="col-sm-3">
         </div>
         <div class="col-md-6">
-          <input  name="pret" ngModel type="text" [(ngModel)]="product.Pret" class="form-control text-center font-weight-bold">
+          <input  name="Pret" ngModel type="number" [(ngModel)]="product.Pret" class="form-control text-center font-weight-bold">
         </div>
         <div class="col-sm-3">
         </div>
@@ -57,7 +71,7 @@
 
         </div>
         <div class="col-md-6">
-          <input  name="descriere" ngModel type="text" [(ngModel)]="product.Descriere"  class="form-control text-center font-weight-bold">
+          <input  name="Descriere" ngModel type="text" [(ngModel)]="product.Descriere"  class="form-control text-center font-weight-bold">
         </div>
         <div class="col-sm-3">
 
@@ -65,7 +79,7 @@
       </div>
     </div>
 
-    <label>Datalansarii noua</label>
+    <label>Filtru1</label>
     <div class="container-md">
       <div class="row">
 
@@ -73,19 +87,46 @@
 
         <div class="col-sm-3"></div>
         <div class="col-md-6">
-          <input  name="datalansarii" ngModel type="text" [(ngModel)]="product.Filtru1"  class="form-control text-center font-weight-bold">
+          <input  name="Filtru1" ngModel type="text" [(ngModel)]="product.Filtru1"  class="form-control text-center font-weight-bold">
         </div>
       </div>
     </div>
 
-    <label>Poza noua</label>
+    <label>Filtru2</label>
     <div class="container-md">
       <div class="row">
-        <div class="col-sm-3">
 
-        </div>
+
+
+        <div class="col-sm-3"></div>
         <div class="col-md-6">
-          <input  name="picture" ngModel type="text" [(ngModel)]="product.Filtru2" class="form-control text-center font-weight-bold">
+          <input  name="Filtru2" ngModel type="text" [(ngModel)]="product.Filtru2"  class="form-control text-center font-weight-bold">
+        </div>
+      </div>
+    </div>
+
+    <label>Filtru3</label>
+    <div class="container-md">
+      <div class="row">
+
+
+
+        <div class="col-sm-3"></div>
+        <div class="col-md-6">
+          <input  name="Filtru3" ngModel type="text" [(ngModel)]="product.Filtru3"  class="form-control text-center font-weight-bold">
+        </div>
+      </div>
+    </div>
+
+    <label>Filtru4</label>
+    <div class="container-md">
+      <div class="row">
+
+
+
+        <div class="col-sm-3"></div>
+        <div class="col-md-6">
+          <input  name="Filtru4" ngModel type="text" [(ngModel)]="product.Filtru4"  class="form-control text-center font-weight-bold">
         </div>
       </div>
     </div>
@@ -97,3 +138,4 @@
     </div>
 
   </div>
+
