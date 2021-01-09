@@ -24,7 +24,7 @@
 }
 
 .thumbnail:hover {
-  box-shadow: 1px 1px 10px white;
+  box-shadow: 1px 1px 10px #060606;
 }
 
 .title {

@@ -112,8 +112,8 @@ navigate(txt:String)
     {
       this.text1="Marca";
       this.text2="Caroserie";
-      this.text3="An";
-      this.text4="Combustibil";
+      this.text3="Combustibil";
+      this.text4="An";
     }
     else
     if(this.prov.Categorie=="Imobiliare")

@@ -40,7 +40,7 @@ export class UpdateproductComponent implements OnInit {
       }).filter(data => data.Nume === this.nume);
 
       this.prod=this.product[0];
-      console.log(this.prod);
+
     });
 
   }
@@ -52,34 +52,35 @@ export class UpdateproductComponent implements OnInit {
     prd.id=this.prod.id;
     prd.Vanzator=this.prod.Vanzator;
 
-    if(prd.Nume =="")
+
+
+    if(prd.Nume == undefined)
       prd.Nume=this.prod.Nume;
 
-
-    if(prd.Pret ==0)
+    if(prd.Pret == undefined)
       prd.Pret=this.prod.Pret;
 
 
-    if(prd.Descriere =="")
+    if(prd.Descriere == undefined)
       prd.Descriere=this.prod.Descriere;
 
 
-    if(prd.Filtru1 =="")
+    if(prd.Filtru1 == undefined)
       prd.Filtru1=this.prod.Filtru1;
 
-    if(prd.Filtru2 =="")
-      prd.Filtru3=this.prod.Filtru2;
+    if(prd.Filtru2 == undefined)
+      prd.Filtru2=this.prod.Filtru2;
 
-    if(prd.Filtru3 =="")
+    if(prd.Filtru3 ==undefined)
       prd.Filtru3=this.prod.Filtru3;
 
-    if(prd.Filtru4 =="")
+    if(prd.Filtru4 ==undefined)
       prd.Filtru4=this.prod.Filtru4;
 
-
-    this.firebaseservice.delete_Product(prd.id);
-    this.firebaseservice.create_NewProduct(prd);
     console.log(prd);
+   this.firebaseservice.delete_Product(prd.id);
+   this.firebaseservice.create_NewProduct(prd);
+
   }
   get prodNume() {return (this.prod && this.prod.Nume) ? this.prod.Nume : null }
 
